@@ -11,22 +11,22 @@ body {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: #182628;
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: #FFF;
 }
 
 a {
-  color: #F05F40;
+  color: #182628;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 a:hover {
-  color: #f05f40;
+  color: #182628;
 }
 
 h1,
@@ -39,15 +39,23 @@ h6 {
 }
 
 .bg-primary {
-  background-color: #F05F40 !important;
+  background-color: #65CCB8 !important;
+}
+
+.bg-secondary-light {
+	background-color: #3B945E !important;
+}
+
+.bg-secondary-dark {
+	background-color: #57BA98 !important;
 }
 
 .bg-dark {
-  background-color: #212529 !important;
+  background-color: #112D32 !important;
 }
 
 .text-faded {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(242, 242, 242, 0.8);
 }
 
 section {
@@ -115,7 +123,7 @@ img::-moz-selection {
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-  color: #F05F40 !important;
+  color: #F2F2F2 !important;
   background-color: transparent;
 }
 
@@ -130,46 +138,46 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(24, 38, 40, 1);
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: #fff;
+    color: rgba(242, 242, 242, 1);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(24, 38, 40, 1);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #fff;
+    color: #57BA98;
   }
   #mainNav.navbar-shrink {
     border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-    background-color: #fff;
+    background-color: #57BA98 ;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #F05F40;
+    color: #F2F2F2;
   }
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f05f40;
+    color: #F2F2F2;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: #212529;
+    color: #182628;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #F05F40;
+    color: #F2F2F2;
   }
 }
 
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-	background-color: #d0d0d0;
+	background-color: #57BA98;
   #background-image: url("../img/header.jpg");
   background-position: center center;
   -webkit-background-size: cover;
@@ -235,7 +243,7 @@ header.masthead p {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(240, 95, 64, 0.9);
+  background: rgba(24, 38, 40, 0.7);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -283,14 +291,23 @@ header.masthead p {
 }
 
 .text-primary {
-  color: #F05F40 !important;
+  color: #F2F2F2 !important;
+}
+
+.text-secondary {
+	color: #8E8D8A !important;
+}
+
+.text-dark {
+	font-weight: 900;
+	color: #182628 !important;
 }
 
 .btn {
+	color: #182628;
   font-weight: 700;
   text-transform: uppercase;
-  border: none;
-  border-radius: 300px;
+  border: 3px solid #182628;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -299,15 +316,17 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: #F05F40;
-  border-color: #F05F40;
+  background-color: #57BA98 ;
+  border-color: #182628;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
-  background-color: #ee4b28 !important;
+  color: #182628;
+	border: 3px solid #182628;
+  background-color: #57BA98 !important;
 }
 
 .btn-primary:active, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
+	border-color: #182628;
+  box-shadow: 0 0 0 0.2rem rgba(24, 38, 40, 0.4) !important;
 }
