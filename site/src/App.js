@@ -5,6 +5,7 @@ import {Button,
   Divider,
   Grid,
   Header,
+  Card,
   Icon,
   Image,
   List,
@@ -12,14 +13,18 @@ import {Button,
   Responsive,
   Segment,
   Sidebar,
-  Visibility,} from 'semantic-ui-react';
+  Visibility,
+  GridRow,
+  GridColumn,
+  CardContent,} from 'semantic-ui-react';
 
 
   const HomepageHeading = ({ mobile }) => (
-    <Container text>
+    <Container>
       <Header
         as='h1'
-        content='Imagine-a-Company'
+        textAlign='center'
+        content='UWA Aerospace'
         inverted
         style={{
           fontSize: mobile ? '2em' : '4em',
@@ -28,20 +33,6 @@ import {Button,
           marginTop: mobile ? '1.5em' : '3em',
         }}
       />
-      <Header
-        as='h2'
-        content='Do whatever you want when you want to.'
-        inverted
-        style={{
-          fontSize: mobile ? '1.5em' : '1.7em',
-          fontWeight: 'normal',
-          marginTop: mobile ? '0.5em' : '1.5em',
-        }}
-      />
-      <Button primary size='huge'>
-        Get Started
-        <Icon name='right arrow' />
-      </Button>
     </Container>
   )
   
@@ -60,7 +51,7 @@ class DesktopContainer extends Component {
     const { fixed } = this.state
 
     return (
-      <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+      <Responsive>
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
@@ -69,7 +60,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
+            style={{ minHeight: '80vh', padding: '1em 0em' }}
             vertical
           >
             <Menu
@@ -80,20 +71,12 @@ class DesktopContainer extends Component {
               size='large'
             >
               <Container>
-                <Menu.Item as='a' active>
-                  Home
+                <Menu.Item as='a'>
+                  Competition
                 </Menu.Item>
-                <Menu.Item as='a'>Work</Menu.Item>
-                <Menu.Item as='a'>Company</Menu.Item>
-                <Menu.Item as='a'>Careers</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
+                <Menu.Item as='a'>Rockets</Menu.Item>
+                <Menu.Item as='a'>Team</Menu.Item>
+                <Menu.Item as='a'>Contact Us</Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -116,66 +99,159 @@ class App extends Component {
     return(
       <DesktopContainer>
         <Segment style={{ padding: '8em 0em' }} vertical>
-            <Grid container stackable verticalAlign='middle'>
+            <Grid container centered column stackable verticalAlign='middle'>
               <Grid.Row>
-                <Grid.Column width={8}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>
-                    We Help Companies and Companions
+                <Grid.Column width={12}>
+                  <Header as='h3' textAlign='center' style={{ fontSize: '2em' }}>
+                    2018/19 Australian University Rocketry Competition
                   </Header>
                   <p style={{ fontSize: '1.33em' }}>
                     We can give your company superpowers to do things that they never thought possible.
                     Let us delight your customers and empower your needs... through pure data analytics.
                   </p>
-                  <Header as='h3' style={{ fontSize: '2em' }}>
-                    We Make Bananas That Can Dance
-                  </Header>
-                  <p style={{ fontSize: '1.33em' }}>
-                    Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-                    bioengineered.
-                  </p>
-                </Grid.Column>
-                <Grid.Column floated='right' width={6}>
-                  <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+                  <Header as='h5' textAlign='center' style={{ fontSize: '1.5em' }}>Progress</Header>
+                  Put a sick timeline here
                 </Grid.Column>
               </Grid.Row>
+              <Header as='h3' textAlign='center' style={{ fontSize: '2em' }}>Footage</Header>
               <Grid.Row>
-                <Grid.Column textAlign='center'>
-                  <Button size='huge'>Check Them Out</Button>
+                
+                <Grid.Column width={16}>
+                  <Card.Group itemsPerRow={2}>
+                    <Card fluid>
+                      <CardContent content={<video style={{width: '100%', height: '100%'}} controls><source src="/slowmo.mp4" type="video/mp4"></source></video>}/>
+                    </Card>
+                    <Card fluid>
+                      <CardContent content={<video style={{width: '100%', height: '100%'}} controls><source src="/slowmo.mp4" type="video/mp4"></source></video>}/>
+                    </Card>
+                  </Card.Group>
+
                 </Grid.Column>
               </Grid.Row>
             </Grid>
           </Segment>
           <Segment style={{ padding: '0em' }} vertical>
-            <Grid celled='internally' columns='equal' stackable>
+            <Grid stackable>
               <Grid.Row textAlign='center'>
                 <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
                   <Header as='h3' style={{ fontSize: '2em' }}>
-                    "What a Company"
+                    Our Team
                   </Header>
                   <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
                 </Grid.Column>
-                <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>
-                    "I shouldn't have gone with their competitor."
-                  </Header>
-                  <p style={{ fontSize: '1.33em' }}>
-                    <Image avatar src='/images/avatar/large/nan.jpg' />
-                    <b>Nan</b> Chief Fun Officer Acme Toys
-                  </p>
-                </Grid.Column>
               </Grid.Row>
+              <Grid.Row>
+                <GridColumn>
+                  <Image centered size={'huge'} src={'/team.jpg'}/>
+                </GridColumn>
+              </Grid.Row>
+            </Grid>
+            <Grid centered stackable>
+              <GridRow style={{marginTop: '4em'}}>
+                <Header as='h3' centered style={{ fontSize: '2em' }}>
+                  Team Members
+                </Header>
+              </GridRow>
+              <GridRow centered style={{marginBottom: '2em'}}>
+                <GridColumn width={10}>
+                  <Card.Group centered itemsPerRow={5} doubling>
+                    <Card
+                      image={<Image fluid size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Samuel Heath'
+                      meta='Co-Project Manager & Avionics'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Anthony Poletto'
+                      meta='Co-Project Manager & Aerostructures'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Rowan Sobey'
+                      meta='Outreach & Recovery Lead'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Joel Tapper'
+                      meta='Aerostructures Lead'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Talisha Finn'
+                      meta='Avionics Lead'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Scott Patterson'
+                      meta='Aerostructures'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Sachio Ingrilli'
+                      meta='Aerostructures Wunderkinder & Chief Weather Specialist'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Jamie Nella'
+                      meta='Recovery'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Steffen Remvik'
+                      meta='Recovery & Tallest Team Member Awardee'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Vihanga Akash'
+                      meta='Avionics'
+                      description=''
+                      raised
+                    />
+                    <Card
+                      image={<Image size={'medium'} src={'/sunnies.jpg'}/>}
+                      header='Harrison Hill'
+                      meta='Aerostructures'
+                      description=''
+                      raised
+                    />
+                  </Card.Group>
+                </GridColumn>
+              </GridRow>
             </Grid>
           </Segment>
           <Segment style={{ padding: '8em 0em' }} vertical>
             <Container text>
               <Header as='h3' style={{ fontSize: '2em' }}>
-                Breaking The Grid, Grabs Your Attention
+                Contact Us
               </Header>
-              <p style={{ fontSize: '1.33em' }}>
-                Instead of focusing on content creation and hard work, we have learned how to master the
-                art of doing nothing by providing massive amounts of whitespace and generic content that
-                can seem massive, monolithic and worth your attention.
-              </p>
+              <Grid columns={1}>
+                <Grid.Row>
+                  <Grid.Column width>
+                    <Icon name={'facebook f'} link/> https://www.facebook.com/UWAAerospace/
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Icon name={'at'} link/> hello@uwaaerospace.org
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
               <Button as='a' size='large'>
                 Read More
               </Button>
@@ -187,17 +263,6 @@ class App extends Component {
               >
                 <a href='#'>Case Studies</a>
               </Divider>
-              <Header as='h3' style={{ fontSize: '2em' }}>
-                Did We Tell You About Our Bananas?
-              </Header>
-              <p style={{ fontSize: '1.33em' }}>
-                Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but
-                it's really true. It took years of gene splicing and combinatory DNA research, but our
-                bananas can really dance.
-              </p>
-              <Button as='a' size='large'>
-                I'm Still Quite Interested
-              </Button>
             </Container>
           </Segment>
           <Segment inverted vertical style={{ padding: '5em 0em' }}>
