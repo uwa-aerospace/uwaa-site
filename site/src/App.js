@@ -70,7 +70,7 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <Menu.Item header icon>
-                  <Header as='h3' image inverted className='header'><Image fluid src={'/logo.png'} />UWA Aerospace</Header>
+                  <Header as='h3' image inverted className='header'><Image size='mini' src={'/logo.png'} />UWA Aerospace</Header>
                 </Menu.Item>
                 {/*<Menu.Item as='a'>Rockets</Menu.Item>
                 <Menu.Item as='a'>Team</Menu.Item>
@@ -96,7 +96,7 @@ class App extends Component {
     var year = new Date().getFullYear();
     return(
       <DesktopContainer>
-        <Segment style={{padding: '3em 0em', paddingTop:'10em'}} vertical basic>
+        <Segment style={{padding: '3em 0em', paddingTop:'5em'}} vertical basic>
           <Grid columns={2} textAlign='center' centered verticalAlign='middle' stackable>
             <Grid.Column>
               <Segment basic compact>
@@ -107,7 +107,7 @@ class App extends Component {
                   <p style={{ fontSize: '1.33em'}}>
                   The Australian Universities Rocket Competition (AURC) is an inagural competition being organised by the Australian Youth Aerospace Association with support from the Department of Defence. 
                   The competition will take place between the 17th-20th of April in the Queensland in 2019.</p>
-                  <p style={{ fontSize: '1.33em' }}>Our target altitude is 10,000 feet (3046m), and have already flight proven our custom rocket to 2860m under 15g's.
+                  <p style={{ fontSize: '1.33em' }}>Our target altitude is 10,000 feet (3046m), and we have already flight proven our custom rocket to 2860m under 15g's.
                     The competition will be assessed on technical design of the rocket, and it's performance during the competition which is based on it's closeness to the target height, and the successful recovery of the rocket.
                   </p>
                 </Segment>
