@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Button,
+import {
   Container,
   Divider,
   Grid,
@@ -10,18 +10,13 @@ import {Button,
   Image,
   List,
   Menu,
-  Modal,
+  Label,
   Responsive,
   Segment,
-  Visibility,
   GridRow,
   GridColumn,
-  CardContent,
   Icon,
-  LabelDetail,
-  Rail,
-  ImageGroup,} from 'semantic-ui-react';
-import Logo from './Components/Logo';
+  Rail} from 'semantic-ui-react';
 import {Steps} from 'antd';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 
@@ -70,7 +65,7 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <Menu.Item header icon>
-                  <Header as='h3' image inverted className='header'><Image size='mini' src={'/logo.png'} />UWA Aerospace</Header>
+                  <Header as='h3' image inverted className='header'><Image size='mini' src={'/media/logo.png'} />UWA Aerospace</Header>
                 </Menu.Item>
                 {/*<Menu.Item as='a'>Rockets</Menu.Item>
                 <Menu.Item as='a'>Team</Menu.Item>
@@ -113,7 +108,7 @@ class App extends Component {
                 </Segment>
                 <Rail size={'mini'} position={'left'}>
                   <Responsive as={Segment} basic {...Responsive.onlyComputer}>
-                    <Header textAlign='center' as='h3' dividing>Progress</Header>
+                    <Header textAlign='center' as='h3' dividing><Icon size={'mini'} name='tasks'/> Progress</Header>
                     <Steps progressDot current={6} style={{marginLeft: '20%'}} direction='vertical' labelPlacement='vertical'>
                       <Step title='Team Formation' description='April 2018'/>
                       <Step title='Research' description=' '/>
@@ -133,11 +128,10 @@ class App extends Component {
           </Grid>
           <Responsive as={Segment} centered basic {...Responsive.onlyMobile}>
             <Grid centered>
-              <Grid.Row centered>
-                <Grid.Column width={8}>
-                <Header textAlign='center' as='h3' dividing>Progress</Header>
-                <Container></Container>
-                  <Steps progressDot current={6} style={{marginLeft: '30%', marginRight: '30%'}} direction='vertical' labelPlacement='vertical'>
+              <Grid.Row centered columns={1}>
+                <Grid.Column width={10}>
+                <Header textAlign='center' as='h3' dividing><Icon size='mini' name='tasks' /> Progress</Header>
+                  <Steps progressDot current={6} style={{marginLeft: '30%'}} direction='vertical' labelPlacement='vertical'>
                     <Step title='Team Formation' description='April 2018'/>
                     <Step title='Research' description=''/>
                     <Step title='Obtain L1 & L2 Certifications' description=''/>
@@ -160,19 +154,24 @@ class App extends Component {
           </Header>
           <Grid container>
             <Grid.Row textAlign='center' centered columns={1}>
-              <Grid.Column textAlign='center' style={{ paddingBottom: '3em'}} width={12}>
+              <Grid.Column style={{ paddingBottom: '3em'}} width={12}>
                 <p style={{ fontSize: '1.33em' }}>We are a team of driven, and talented students from the University of Western Australia with a huge passion for engineering, rocketry, and the aerospace industry.
                 The team is predominantly comprised of multi-disciplinary engineering students with specialisations ranging from Mechanical to Software Engineering.</p>
               </Grid.Column>
               <Grid.Column width={12}>
-                <Image centered rounded src={'/team.jpg'} />
-                <Header textAlign='center' as='h4'>
-                  The UWA Aerospace Team with Jeff before our final launch in preparation for the April 2019 launch window
-                </Header>
+                <Image centered rounded src={'/media/team.jpg'} 
+                  label={<Label basic 
+                                attached='bottom' 
+                                detail={
+                                  <Header textAlign='center' as='h4'>
+                                    The UWA Aerospace Team with Jeff before our final launch in preparation for the April 2019 launch window
+                                  </Header>}/>} />
+                
+                  
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Grid centered stackable container>
+          <Grid centered container>
             <GridRow style={{marginTop: '4em'}}>
               <Container text>       
                 <Divider as='h2' horizontal style={{paddingBottom: '1em'}} className='header'>
@@ -184,80 +183,69 @@ class App extends Component {
               <GridColumn width={14}>
                 <Card.Group centered itemsPerRow={4} doubling>
                   <Card
-                    image={<Image fluid src={'/Sam.png'}/>}
-                    header='Samuel Heath'
+                    image={<Image fluid src={'/media/team/Sam.png'}/>}
+                    header={<Card.Header>Samuel Heath <span style={{float:'right'}}><Icon size='small' corner name='chart line'/></span></Card.Header>}
                     meta='Co-Project Manager & Avionics'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
-                    header='Anthony Poletto'
+                    image={<Image fluid src={'/media/team/Anthony.jpg'}/>}
+                    header={<Card.Header>Anthony Poletto <span style={{float:'right'}}><Icon size='small' name='chart line'/></span></Card.Header>}
                     meta='Co-Project Manager & Aerostructures'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image fluid src={'/Rowan.png'}/>}
-                    header='Rowan Sobey'
+                    image={<Image fluid src={'/media/team/Rowan.png'}/>}
+                    header={<Card.Header>Rowan Sobey <span style={{float:'right'}}><Icon size='small' name='band aid'/></span></Card.Header>}
                     meta='Sponsorships & Recovery Lead'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
-                    header='Joel Tapper'
-                    meta='Aerostructures Lead'
-                    description=''
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
+                    header={<Card.Header>Joel Tapper <span style={{float:'right'}}><Icon size='small' name='rocket'/></span></Card.Header>}
+                    meta={<Card.Meta> Aerostructures Lead</Card.Meta>}
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
-                    header='Talisha Finn'
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
+                    header={<Card.Header>Talisha Finn <span style={{float:'right'}}><Icon size='small' name='microchip'/></span></Card.Header>}
                     meta='Avionics Lead'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
+                    header={<Card.Header>Sachio Ingrilli  <span style={{float:'right'}}><Icon size='small' name='cloud'/></span></Card.Header>}
+                    meta='Aerostructures & Chief Weather Specialist'
+                    raised
+                  />
+                  <Card
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
                     header='Scott Patterson'
                     meta='Aerostructures'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
-                    header='Sachio Ingrilli'
-                    meta='Aerostructures Wunderkinder & Chief Weather Specialist'
-                    description=''
-                    raised
-                  />
-                  <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
+                    image={<Image fluid src={'/media/team/Jamie.jpg'}/>}
                     header='Jamie Nella'
-                    meta='Recovery'
-                    description=''
+                    meta='Recovery & Flight Analysis'
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
                     header='Steffen Remvik'
-                    meta='Recovery & Tallest Team Member Awardee'
-                    description=''
+                    meta='Recovery & Tallest Member'
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
-                    header='Vihanga Akash'
+                    image={<Image fluid src={'/media/team/Akash.jpg'}/>}
+                    header='Vihanga Akash Silva'
                     meta='Avionics'
-                    description=''
                     raised
                   />
                   <Card
-                    image={<Image style={{opacity: '0.5'}} fluid src={'/logo.png'}/>}
+                    image={<Image style={{opacity: '0.5'}} fluid src={'/media/logo.png'}/>}
                     header='Harrison Hill'
                     meta='Aerostructures'
-                    description=''
                     raised
                   />
                 </Card.Group>
@@ -266,40 +254,40 @@ class App extends Component {
             </GridRow>
           </Grid>
         </Segment>
-        <Divider  hidden clearing/>
+        <Divider hidden clearing/>
         <Segment vertical basic>
           <Header as='h3' textAlign='center' style={{ fontSize: '2em', paddingBottom: '1em'}}>Media</Header>
-          <Grid container centered columns={3} stackable doubling>
+          <Grid container centered>
             <Grid.Row centered>
               <Grid.Column width={14}>
-                <Card.Group itemsPerRow={2}>
-                  <Card fluid image={<Image fluid rounded src="/Windtunnel_testing.jpg" />}/>
-                  <Card fluid image={<Image fluid rounded src={"/25th_August_Launch.jpg"} />}/>
-                  <Card fluid image={<Image fluid rounded src={"/Avionics_inspection.jpg"} />}/>
-                  <Card fluid image={<Image fluid rounded src="/team_ariel.jpg" />}/>
+                <Card.Group itemsPerRow={2} doubling>
+                  <Card fluid image={<Image fluid rounded src="/media/Windtunnel_testing.jpg" />}/>
+                  <Card fluid image={<Image fluid rounded src={"/media/25th_August_Launch.jpg"} />}/>
+                  <Card fluid image={<Image fluid rounded src={"/media/Avionics_inspection.jpg"} />}/>
+                  <Card fluid image={<Image fluid rounded src="/media/team_ariel.jpg" />}/>
                 </Card.Group>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row centered>
               <Grid.Column width={14}>
-                <Card.Group itemsPerRow={2}>
-                  <Card fluid content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/25th_August_SlowMo.mp4" type="video/mp4"></source></video>} />}/>
-                  <Card fluid content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/slowmo.mp4" type="video/mp4"></source></video>} />}/>
+                <Card.Group itemsPerRow={2} doubling>
+                  <Card fluid content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/25th_August_SlowMo.mp4" type="video/mp4"></source></video>} />}/>
+                  <Card fluid content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/slowmo.mp4" type="video/mp4"></source></video>} />}/>
                 </Card.Group>
-                <Divider  section/>
+                <Divider section/>
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Segment>
         <Segment vertical basic>
           <Container text>
-            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '3em'}} className='header'>
+            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
               Special Thanks To
             </Header>
-            <Grid container centered>
-              <Grid.Row centered columns={1}>
-                <Grid.Column>
-                  <Image centered size='medium' href='http://www.caswa.com' target='_blank' src={'/caswa.png'} />
+            <Grid container centered columns={1}>
+              <Grid.Row centered>
+                <Grid.Column width={4}>
+                  <Image centered size='medium' href='http://www.caswa.com' target='_blank' src={'/media/caswa.png'} />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -307,23 +295,24 @@ class App extends Component {
         </Segment>
         <Segment style={{ padding: '4em 0em' }} vertical basic>
           <Container text>
-            <Divider as='h2' horizontal fitted style={{paddingBottom: '3em'}} className='header'>
+            <Divider as='h2' horizontal fitted style={{paddingBottom: '2em'}} className='header'>
               Contact Us
             </Divider>
             <Grid divided container centered relaxed verticalAlign={'middle'} stackable>
               <Grid.Row columns={2}>
                 <Grid.Column width={5} textAlign='center'>
-                    <Image circular centered rounded src={'/Rowan.png'}/>
+                    <Image circular size='small' centered rounded src={'/media/team/Rowan.png'}/>
                     <Header as='h3'>
                       Rowan Sobey
                       <HeaderSubHeader>Sponsorship Coordinator</HeaderSubHeader>
                     </Header>
                 </Grid.Column>
-                <Grid.Column floated={'right'} mobile={5}>
+                <Grid.Column floated={'right'} mobile={5} textAlign='left'>
                   <List relaxed verticalAlign='top'>
-                    <List.Item icon='facebook f' content={<a href="https://www.facebook.com/UWAAerospace/">Facebook</a>}/>
+                    <List.Item icon='book' content={<a href='/resources/UWA Aerospace Prospectus.pdf' target='_blank' rel='noopener noreferrer'>Prospectus</a>}/>
+                    <List.Item icon='facebook' content={<a href="https://www.facebook.com/UWAAerospace/" target='_blank' rel='noopener noreferrer'>Facebook</a>}/>
                     <List.Item icon='mail' content={<a href='mailto:hello@uwaaerospace.org'>hello@uwaaerospace.org</a>}/>
-                    <List.Item icon='linkedin' content={<a href='https://www.linkedin.com/company/uwa-aerospace/'>LinkedIn</a>}/>
+                    <List.Item icon='linkedin' content={<a href='https://www.linkedin.com/company/uwa-aerospace/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>}/>
                   </List>
                 </Grid.Column>
               </Grid.Row>
