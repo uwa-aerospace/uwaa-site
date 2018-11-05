@@ -171,7 +171,7 @@ class App extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Grid centered container>
+          <Grid centered container stackable>
             <GridRow style={{marginTop: '4em'}}>
               <Container text>       
                 <Divider as='h2' horizontal style={{paddingBottom: '1em'}} className='header'>
