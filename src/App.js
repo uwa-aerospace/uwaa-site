@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Container,
+  Dropdown,
   Header,
   Image,
   Menu,
@@ -53,9 +54,13 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <Menu.Item header icon>
-                  <Header as='h3' image inverted className='header'><Image size='mini' src={'/media/logo.png'} />UWA Aerospace</Header>
+                  <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
                 </Menu.Item>
-                <Menu.Item as='a'>Rockets</Menu.Item>
+                <Dropdown item text='Rockets'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item icon='edit' text='2018-2019 AURC' />
+                  </Dropdown.Menu>
+                </Dropdown>
                 <Menu.Item as='a'>Team</Menu.Item>
               </Container>
             </Menu>
@@ -86,7 +91,7 @@ class App extends Component {
           <Segment inverted vertical textAlign='center'>
             <Container text>
               <Header textAlign='center' as='h5' image inverted>
-                © Copyright {year} - UWAA
+                © Copyright 2018-{year} - UWAA
               </Header>
             </Container>
           </Segment>

@@ -225,9 +225,9 @@ class HomePage extends React.Component {
             <Grid divided container centered relaxed verticalAlign={'middle'} stackable>
                 <Grid.Row columns={2}>
                 <Grid.Column width={5} textAlign='center'>
-                    <Image circular size='small' centered rounded src={'/media/team/Rowan.png'}/>
+                    <Image circular size='small' centered rounded src={'/media/team/James.png'}/>
                     <Header as='h3'>
-                        Rowan Sobey
+                        James Dingley
                         <HeaderSubHeader>Sponsorship Coordinator</HeaderSubHeader>
                     </Header>
                 </Grid.Column>
