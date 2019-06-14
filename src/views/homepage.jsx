@@ -4,18 +4,15 @@ import {
     Divider,
     Grid,
     Header,
-    Card,
     Image,
     List,
     Segment,
-    GridRow,
-    GridColumn,
     Placeholder,
     Responsive,} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 import CoverItem from '../Components/CoverItem';
 
-class HomePage extends React.Component {
+class HomePage extends Component {
     state = {}
   
     render() {
@@ -23,9 +20,9 @@ class HomePage extends React.Component {
   
       return (
         <div>
-        <Responsive as={Segment} {...Responsive.onlyComputer} style={{ padding: '0em 0em', height: '80vh' }} inverted placeholder fluid>
+        <Responsive as={Segment} {...Responsive.onlyComputer} style={{ padding: '0em 0em', height: '85vh' }} placeholder fluid>
             <Placeholder fluid>
-                <Placeholder.Image inverted rectangular>
+                <Placeholder.Image rectangular>
 
                 </Placeholder.Image>
             </Placeholder>
@@ -35,10 +32,13 @@ class HomePage extends React.Component {
             <CoverItem title={"Rocketry Competitions"} />
         </Segment>
         <Segment vetrical basic  fluid placeholder>
-            <CoverItem title={"Outreach"} />
+            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} />
         </Segment>
         <Segment vetrical fluid basic placeholder>
             <CoverItem title={"Educating Students"} />
+        </Segment>
+        <Segment vetrical fluid basic placeholder>
+            <CoverItem title={"Engaging Students with Industry"} contentUrl={"/media/indo.jpg"} />
         </Segment>
         <Segment vertical basic>
             <Container text>

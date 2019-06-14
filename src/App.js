@@ -10,6 +10,8 @@ import {
   Segment} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomePage from './views/homepage';
+import TeamView from './views/TeamView';
+import Comp2018 from './views/Comp2018View';
 
   const HomepageHeading = ({ mobile }) => (
     <Container textAlign='center'>
@@ -53,15 +55,15 @@ class DesktopContainer extends Component {
               size='large'
             >
               <Container>
-                <Menu.Item header icon>
+                <Menu.Item header icon href="/">
                   <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
                 </Menu.Item>
                 <Dropdown item text='Rockets'>
                   <Dropdown.Menu>
-                    <Dropdown.Item icon='edit' text='2018-2019 AURC' />
+                    <Dropdown.Item icon='edit' href="/aurc2018" as="a" text='2018-2019 AURC' />
                   </Dropdown.Menu>
                 </Dropdown>
-                <Menu.Item as='a'>Team</Menu.Item>
+                <Menu.Item as='a' href="/team">Team</Menu.Item>
               </Container>
             </Menu>
             {/*<HomepageHeading />*/}
@@ -85,8 +87,8 @@ class App extends Component {
       <Router>
         <DesktopContainer>
           <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={HomePage} />
-          <Route path="/topics" component={HomePage} />
+          <Route path="/team" component={TeamView} />
+          <Route path="/aurc2018" component={Comp2018} />
           
           <Segment inverted vertical textAlign='center'>
             <Container text>

@@ -17,22 +17,27 @@ import {
 
 
 export default class CoverItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inverted: false,
+            title: "",
+            contentUrl: "",
+        }
+    }
+
     render() {
+        this.state = this.props;
         return (
-            <Grid container centered columns={2} fluid>
+            <Grid container centered columns={2} fluid stackable>
                 <GridColumn>
-                    <Placeholder fluid style={{ height: 200, width: 400 }} centered>
-                        <PlaceholderImage />
-                    </Placeholder>
+                    <Image rounded fluid spaced={"right"} verticalAlign={"middle"} src={this.props.contentUrl} />
                 </GridColumn>
                 <GridColumn>
-                    <Card>
-
-                    </Card>
+                    <Header as="h2">
+                        {this.props.title}
+                    </Header>
                     <Placeholder fluid>
-                        <Header as="h3">
-                            {this.props.title}
-                        </Header>
                         <Placeholder.Paragraph>
                             <Placeholder.Line />
                             <Placeholder.Line />
@@ -41,8 +46,16 @@ export default class CoverItem extends Component {
                             <Placeholder.Line />
                             <Placeholder.Line />
                         </Placeholder.Paragraph>
-                        <Button content="Read More" basic floated="right" />
+                        <Placeholder.Paragraph>
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                        </Placeholder.Paragraph>
                     </Placeholder>
+                    <Button content="Read More" basic floated="right" />
                 </GridColumn>
             </Grid>
         )
