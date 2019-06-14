@@ -11,51 +11,41 @@ import {
     Segment,
     GridRow,
     GridColumn,
-    Placeholder,
-    PlaceholderImage,
-    PlaceholderParagraph} from 'semantic-ui-react';
+    Placeholder,} from 'semantic-ui-react';
+
+
+class SummaryText extends Component {
+    render() {
+        var buttonText = this.props.buttonText == undefined ? "Read More" : this.props.buttonText;
+
+        return (
+            <Container fluid>
+                <Header as="h2">
+                    {this.props.title}
+                </Header>
+                {this.props.content}
+                <Button content={buttonText} basic floated="right" />
+            </Container>
+        )
+    }
+}
 
 
 export default class CoverItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inverted: false,
-            title: "",
-            contentUrl: "",
-        }
-    }
-
     render() {
-        this.state = this.props;
         return (
             <Grid container centered columns={2} fluid stackable>
                 <GridColumn>
-                    <Image rounded fluid spaced={"right"} verticalAlign={"middle"} src={this.props.contentUrl} />
+                    {!this.props.inverted ? 
+                        (<Image rounded fluid spaced={"right"} verticalAlign={"middle"} src={this.props.contentUrl} />) :
+                        (<SummaryText title={this.props.title} content={this.props.content} buttonText={this.props.buttonText} />)
+                    }
                 </GridColumn>
                 <GridColumn>
-                    <Header as="h2">
-                        {this.props.title}
-                    </Header>
-                    <Placeholder fluid>
-                        <Placeholder.Paragraph>
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                        </Placeholder.Paragraph>
-                        <Placeholder.Paragraph>
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                            <Placeholder.Line />
-                        </Placeholder.Paragraph>
-                    </Placeholder>
-                    <Button content="Read More" basic floated="right" />
+                    {!this.props.inverted ? 
+                        (<SummaryText title={this.props.title} content={this.props.content} buttonText={this.props.buttonText} />) :
+                        (<Image rounded fluid spaced={"left"} verticalAlign={"middle"} src={this.props.contentUrl} />)
+                    }
                 </GridColumn>
             </Grid>
         )

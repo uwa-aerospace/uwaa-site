@@ -60,13 +60,12 @@ class DesktopContainer extends Component {
                 </Menu.Item>
                 <Dropdown item text='Rockets'>
                   <Dropdown.Menu>
-                    <Dropdown.Item icon='edit' href="/aurc2018" as="a" text='2018-2019 AURC' />
+                    <Dropdown.Item icon='rocket' href="/aurc2018" as="a" text='2018-2019 AURC' />
                   </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Item as='a' href="/team">Team</Menu.Item>
               </Container>
             </Menu>
-            {/*<HomepageHeading />*/}
           </Segment>
 
         {children}

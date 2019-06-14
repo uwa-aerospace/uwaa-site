@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import {
     Container,
     Divider,
+    Dimmer,
     Grid,
     Header,
     Image,
     List,
     Segment,
     Placeholder,
-    Responsive,} from 'semantic-ui-react';
+    Responsive,
+    Transition,} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 import CoverItem from '../Components/CoverItem';
 
@@ -20,40 +22,28 @@ class HomePage extends Component {
   
       return (
         <div>
-        <Responsive as={Segment} {...Responsive.onlyComputer} style={{ padding: '0em 0em', height: '85vh' }} placeholder fluid>
-            <Placeholder fluid>
-                <Placeholder.Image rectangular>
-
-                </Placeholder.Image>
-            </Placeholder>
+        <Responsive as={Container} {...Responsive.onlyComputer} fluid basic>
+            <Image fluid src={"./media/aurc/prep_banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
+            <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />
         </Responsive>
-        <Divider></Divider>
-        <Segment vetrical basic style={{ margin: '4em 0em' }}  fluid placeholder>
-            <CoverItem title={"Rocketry Competitions"} />
+        <Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
+            <Container textAlign="center" text>
+                <Header as="h1" content="UWA Aerospace exists to enable and facilitate the development of young Western Australians in STEM and the Aerospace Industry through the following activities..." />
+            </Container>
+        </Segment>
+        <Segment vetrical basic fluid placeholder>
+            <Transition animation='fade' transitionOnMount duration='1000'>
+                <CoverItem title={"Rocketry Competitions"} contentUrl={"/media/aurc/success.jpg"} />
+            </Transition>
         </Segment>
         <Segment vetrical basic  fluid placeholder>
-            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} />
+            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} inverted={true} content={<p>UWAA does outreach</p>} />
         </Segment>
         <Segment vetrical fluid basic placeholder>
-            <CoverItem title={"Educating Students"} />
+            <CoverItem title={"Educating Students"} contentUrl={"/media/ScotchOutreach/pres1.jpg"} />
         </Segment>
         <Segment vetrical fluid basic placeholder>
-            <CoverItem title={"Engaging Students with Industry"} contentUrl={"/media/indo.jpg"} />
-        </Segment>
-        <Segment vertical basic>
-            <Container text>
-            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
-                Special Thanks To
-            </Header>
-            <Grid container centered columns={2} verticalAlign='middle'>
-                <Grid.Column>
-                    <Image centered size='medium' href='https://www.riotinto.com/' target='_blank' src={'/media/RioTinto.jpg'} />
-                </Grid.Column>
-                <Grid.Column>
-                    <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
-                </Grid.Column>
-            </Grid>
-            </Container>
+            <CoverItem title={"Engaging Students with Industry"} contentUrl={"/media/indo.jpg"} inverted={true} />
         </Segment>
         <Segment style={{ padding: '4em 0em' }} vertical basic>
             <Container text>
@@ -78,6 +68,24 @@ class HomePage extends Component {
                     </List>
                 </Grid.Column>
                 </Grid.Row>
+            </Grid>
+            </Container>
+        </Segment>
+        <Segment vertical basic>
+            <Container text>
+            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
+                Special Thanks To
+            </Header>
+            <Grid container centered columns={2} verticalAlign='middle' style={{paddingBottom: '2em'}}>
+                <Grid.Column>
+                    <Image centered size='medium' href='https://www.riotinto.com/' target='_blank' src={'/media/RioTinto.jpg'} />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image centered size='medium' href='http://www.uwa.edu.au' target='_blank' src={'/media/UWALogo.jpg'} />
+                </Grid.Column>
             </Grid>
             </Container>
         </Segment>
