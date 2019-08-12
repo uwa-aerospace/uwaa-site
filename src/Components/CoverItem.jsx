@@ -2,16 +2,10 @@ import React, {Component} from 'react';
 import {
     Button,
     Container,
-    Divider,
     Grid,
     Header,
-    Card,
     Image,
-    List,
-    Segment,
-    GridRow,
-    GridColumn,
-    Placeholder,} from 'semantic-ui-react';
+    GridColumn,} from 'semantic-ui-react';
 
 
 class SummaryText extends Component {

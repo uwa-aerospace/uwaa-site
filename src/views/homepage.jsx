@@ -36,14 +36,14 @@ class HomePage extends Component {
                 <CoverItem title={"Rocketry Competitions"} contentUrl={"/media/aurc/success.jpg"} />
             </Transition>
         </Segment>
-        <Segment vetrical basic  fluid placeholder>
-            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} inverted={true} content={<p>UWAA does outreach</p>} />
+        <Segment vetrical fluid basic placeholder>
+            <CoverItem title={"Engaging Students with Industry"} contentUrl={"/media/indo.jpg"} inverted={true} />
         </Segment>
         <Segment vetrical fluid basic placeholder>
             <CoverItem title={"Educating Students"} contentUrl={"/media/ScotchOutreach/pres1.jpg"} />
         </Segment>
-        <Segment vetrical fluid basic placeholder>
-            <CoverItem title={"Engaging Students with Industry"} contentUrl={"/media/indo.jpg"} inverted={true} />
+        <Segment vetrical basic  fluid placeholder>
+            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} inverted={true} content={<p>UWAA does outreach</p>} />
         </Segment>
         <Segment style={{ padding: '4em 0em' }} vertical basic>
             <Container text>

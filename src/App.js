@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomePage from './views/homepage';
 import TeamView from './views/TeamView';
 import Comp2018 from './views/Comp2018View';
+import OutreachView from './views/OutreachView';
 
   const HomepageHeading = ({ mobile }) => (
     <Container textAlign='center'>
@@ -64,6 +65,7 @@ class DesktopContainer extends Component {
                   </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Item as='a' href="/team">Team</Menu.Item>
+                <Menu.Item as='a' href='/outreach'>Outreach</Menu.Item>
               </Container>
             </Menu>
           </Segment>
@@ -88,6 +90,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/team" component={TeamView} />
           <Route path="/aurc2018" component={Comp2018} />
+          <Route path='/outrech' component={OutreachView} />
           
           <Segment inverted vertical textAlign='center'>
             <Container text>
