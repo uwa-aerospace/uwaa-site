@@ -15,7 +15,7 @@ export default class ProjectTimeline extends Component {
                 <ul style={{textAlign:'left'}}>
                     <li>Max-Speed: 200 m/s</li>
                     <li>Max-G: 10 g's</li>
-                    <li>Apogee: 1400m</li>
+                    <li>Apogee: 1.40km</li>
                 </ul>
                 </Timeline.Item>
                 <Timeline.Item color="green" dot={<Icon type="profile" style={{fontSize: '20px'}} />}>
@@ -26,7 +26,7 @@ export default class ProjectTimeline extends Component {
                 <ul style={{textAlign:'left'}}>
                     <li>Max-Speed: 290 m/s</li>
                     <li>Max-G: 15 g's</li>
-                    <li>Apogee: 2860m</li>
+                    <li>Apogee: 2.86km</li>
                 </ul>
                 </Timeline.Item>
                 <Timeline.Item color="green" dot={<Icon type="profile" style={{fontSize: '20px'}} />}>

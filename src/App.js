@@ -9,6 +9,8 @@ import {
   Responsive,
   Segment} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group-v2";
+
 import HomePage from './views/homepage';
 import TeamView from './views/TeamView';
 import Comp2018 from './views/Comp2018View';
@@ -61,7 +63,9 @@ class DesktopContainer extends Component {
                 </Menu.Item>
                 <Dropdown item text='Rockets'>
                   <Dropdown.Menu>
+                    <Dropdown.Item icon='rocket' href="/aurc2018" as="a" text='Launchpad' />
                     <Dropdown.Item icon='rocket' href="/aurc2018" as="a" text='2018-2019 AURC' />
+                    <Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />
                   </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Item as='a' href="/team">Team</Menu.Item>
@@ -87,15 +91,16 @@ class App extends Component {
     return(
       <Router>
         <DesktopContainer>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/team" component={TeamView} />
-          <Route path="/aurc2018" component={Comp2018} />
-          <Route path='/outrech' component={OutreachView} />
           
+              <Route exact path="/" component={HomePage} />
+              <Route path="/team" component={TeamView} />
+              <Route path="/aurc2018" component={Comp2018} />
+              <Route path='/outreach' component={OutreachView} />
+
           <Segment inverted vertical textAlign='center'>
             <Container text>
               <Header textAlign='center' as='h5' image inverted>
-                © Copyright 2018-{year} - UWAA
+                © Copyright 2018-{year} - UWA Aerospace
               </Header>
             </Container>
           </Segment>

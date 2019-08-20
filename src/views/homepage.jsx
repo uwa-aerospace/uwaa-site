@@ -28,7 +28,13 @@ class HomePage extends Component {
         </Responsive>
         <Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>
-                <Header as="h1" content="UWA Aerospace exists to enable and facilitate the development of young Western Australians in STEM and the Aerospace Industry through the following activities..." />
+                <Header as="h2" content="UWA Aerospace is a technical student team developing skills relevant to engineering in extreme environments. We design, build, test, and launch university-level competitions and as platforms for high-altitude research. We also promote space, science, and STEM to the broader WA Community." />
+            </Container>
+        </Segment>
+        <Segment vertical basic fluid>
+            <Container>
+                <Header as="h2" textAlign='center'>2019 Mission</Header>
+                <Header as="h3" content="This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments. We’re achieving this through five distinct missions designed to push the frontiers of engineering design." />
             </Container>
         </Segment>
         <Segment vetrical basic fluid placeholder>
@@ -43,7 +49,7 @@ class HomePage extends Component {
             <CoverItem title={"Educating Students"} contentUrl={"/media/ScotchOutreach/pres1.jpg"} />
         </Segment>
         <Segment vetrical basic  fluid placeholder>
-            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} inverted={true} content={<p>UWAA does outreach</p>} />
+            <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} inverted={true} content={<p>We love to share our passion for rockets while promoting STEM education and WA Science</p>} />
         </Segment>
         <Segment style={{ padding: '4em 0em' }} vertical basic>
             <Container text>
