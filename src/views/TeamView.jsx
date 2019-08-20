@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {
     Card,
     Container,
-    Divider,
+    Step,
     Grid,
     GridColumn,
     GridRow,
@@ -16,10 +16,12 @@ export default class TeamView extends Component {
         return (
             <Grid centered container stackable>
                 <GridRow style={{marginTop: '4em'}}>
-                    <Container text>       
-                    <Header as="h1" horizontal style={{paddingBottom: '1em'}} className='header'>
-                        Team Members
-                    </Header>
+                    <Container text>
+                        <Header as="h1" horizontal style={{paddingBottom: '1em'}} className='header'>
+                            Team Members
+                        </Header>
+                        <p>UWA Aerospace is a multidisciplinary team of undergraduate and postgraduate students studying at the University of Western Australia. 
+                        Our team is primarily comprised of mechanical, software and electrical engineers.</p>
                     </Container> 
                 </GridRow>
                 <GridRow centered style={{marginBottom: '2em'}}>
@@ -91,7 +93,7 @@ export default class TeamView extends Component {
                             meta='Aerostructures & Finance'
                             raised
                             />
-                            <Card
+                            {/*<Card
                             image={<Image fluid src={'/media/team/Harry.png'}/>}
                             header='Harrison Hill'
                             meta='Aerostructures'
@@ -138,9 +140,27 @@ export default class TeamView extends Component {
                             header=''
                             meta='Aerostructures'
                             raised
-                            />
+                            />*/}
                         </Card.Group>
                     </GridColumn>
+                </GridRow>
+                <GridRow style={{marginBottom: '5em'}}>
+                    <Header as='h1' content='Application Process' />
+                    <Header as='h4'>
+                        We encourage students from all fields of study, not just engineering! However, only UWA students can register interest for joining the team.
+                    </Header>
+                    <Step.Group fluid size='large' widths={2} ordered stackable='tablet'>
+                            <Step>
+                                <Step.Title>Fill Out Our Form</Step.Title>
+                                <Step.Description>UWA Students can access the application form <a href="https://forms.gle/XBN4GzdspLjGJt1p7">here</a>.</Step.Description>
+                            </Step>
+                            <Step>
+                                <Step.Title>We'll Want to Chat With You!</Step.Title>
+                                <Step.Description>
+                                    <p>We'll get in touch within 7 days to arrange a time to meet with you.</p>                                
+                                </Step.Description>
+                            </Step>
+                    </Step.Group>
                 </GridRow>
             </Grid>
         )

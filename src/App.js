@@ -15,6 +15,7 @@ import HomePage from './views/homepage';
 import TeamView from './views/TeamView';
 import Comp2018 from './views/Comp2018View';
 import OutreachView from './views/OutreachView';
+import Launchpad from './views/Launchpad';
 
   const HomepageHeading = ({ mobile }) => (
     <Container textAlign='center'>
@@ -63,8 +64,8 @@ class DesktopContainer extends Component {
                 </Menu.Item>
                 <Dropdown item text='Rockets'>
                   <Dropdown.Menu>
-                    <Dropdown.Item icon='rocket' href="/aurc2018" as="a" text='Launchpad' />
-                    <Dropdown.Item icon='rocket' href="/aurc2018" as="a" text='2018-2019 AURC' />
+                    <Dropdown.Item icon='rocket' href="/launchpad" as="a" text='Launchpad' />
+                    <Dropdown.Item icon='trophy' href="/aurc2018" as="a" text='2018-2019 AURC' />
                     <Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />
                   </Dropdown.Menu>
                 </Dropdown>
@@ -91,13 +92,15 @@ class App extends Component {
     return(
       <Router>
         <DesktopContainer>
-          
+          <Container fluid style={{minHeight: '100vh'}}>
               <Route exact path="/" component={HomePage} />
               <Route path="/team" component={TeamView} />
               <Route path="/aurc2018" component={Comp2018} />
+              <Route path="/launchpad" component={Launchpad} />
               <Route path='/outreach' component={OutreachView} />
+          </Container>
 
-          <Segment inverted vertical textAlign='center'>
+          <Segment inverted vertical textAlign='center' attached='top'>
             <Container text>
               <Header textAlign='center' as='h5' image inverted>
                 © Copyright 2018-{year} - UWA Aerospace

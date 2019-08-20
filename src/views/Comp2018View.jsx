@@ -82,7 +82,7 @@ class Comp2018 extends React.Component {
             <GridRow style={{marginTop: '4em'}}>
                 <Container text>       
                 <Divider as='h2' horizontal style={{paddingBottom: '1em'}} className='header'>
-                    Team Members
+                    2018 AURC Team Members
                 </Divider>
                 </Container> 
             </GridRow>
@@ -187,58 +187,13 @@ class Comp2018 extends React.Component {
             </Grid.Row>
             <Grid.Row centered>
                 <Grid.Column width={14}>
-                <Card.Group itemsPerRow={2} doubling>
-                    <Card content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/25th_August_SlowMo.mp4" type="video/mp4"></source></video>} />}/>
-                    <Card content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/slowmo.mp4" type="video/mp4"></source></video>} />}/>
-                </Card.Group>
-                <Divider section/>
+                    <Card.Group itemsPerRow={2} doubling>
+                        <Card content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/25th_August_SlowMo.mp4" type="video/mp4"></source></video>} />}/>
+                        <Card content={<Embed defaultActive content={<video style={{width: '100%', height: '100%'}} controls><source src="/media/slowmo.mp4" type="video/mp4"></source></video>} />}/>
+                    </Card.Group>
                 </Grid.Column>
             </Grid.Row>
             </Grid>
-        </Segment>
-        <Segment vertical basic>
-            <Container text>
-            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
-                Special Thanks To
-            </Header>
-            <Grid container centered columns={2} verticalAlign='middle'>
-                <Grid.Column>
-                    <Image centered size='medium' href='https://www.riotinto.com/' target='_blank' src={'/media/RioTinto.jpg'} />
-                </Grid.Column>
-                <Grid.Column>
-                    <Image centered size='medium' href='http://www.caswa.com' target='_blank' src={'/media/caswa.png'} />
-                </Grid.Column>
-                <Grid.Column>
-                    <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
-                </Grid.Column>
-            </Grid>
-            </Container>
-        </Segment>
-        <Segment style={{ padding: '4em 0em' }} vertical basic>
-            <Container text>
-            <Divider as='h2' horizontal fitted style={{paddingBottom: '2em'}} className='header'>
-                Contact Us
-            </Divider>
-            <Grid divided container centered relaxed verticalAlign={'middle'} stackable>
-                <Grid.Row columns={2}>
-                <Grid.Column width={5} textAlign='center'>
-                    <Image circular size='small' centered rounded src={'/media/team/James.png'}/>
-                    <Header as='h3'>
-                        James Dingley
-                        <HeaderSubHeader>Sponsorship Coordinator</HeaderSubHeader>
-                    </Header>
-                </Grid.Column>
-                <Grid.Column floated={'right'} mobile={5} textAlign='left'>
-                    <List relaxed verticalAlign='top'>
-                    <List.Item icon='book' content={<a href='/resources/UWA Aerospace Prospectus.pdf' target='_blank' rel='noopener noreferrer'>Prospectus</a>}/>
-                    <List.Item icon='facebook' content={<a href="https://www.facebook.com/UWAAerospace/" target='_blank' rel='noopener noreferrer'>Facebook</a>}/>
-                    <List.Item icon='mail' content={<a href='mailto:hello@uwaaerospace.org'>hello@uwaaerospace.org</a>}/>
-                    <List.Item icon='linkedin' content={<a href='https://www.linkedin.com/company/uwa-aerospace/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>}/>
-                    </List>
-                </Grid.Column>
-                </Grid.Row>
-            </Grid>
-            </Container>
         </Segment>
         </div>
         )
