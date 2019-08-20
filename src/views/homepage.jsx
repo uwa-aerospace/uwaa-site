@@ -26,12 +26,12 @@ class HomePage extends Component {
             <Image fluid src={"./media/aurc/prep_banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
             {/*<Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
         </Responsive>
-        <Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
+        {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>
                 <Header as="h2" content="UWA Aerospace is a technical student team developing skills relevant to engineering in extreme environments. We design, build, test, and launch university-level competitions and as platforms for high-altitude research. We also promote space, science, and STEM to the broader WA Community." />
             </Container>
         </Segment>
-        {/*<Segment vertical basic fluid>
+        <Segment vertical basic fluid>
             <Container>
                 <Header as="h2" textAlign='center'>2019 Mission</Header>
                 <Header as="h3" content="This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments. We’re achieving this through five distinct missions designed to push the frontiers of engineering design." />
@@ -47,9 +47,9 @@ class HomePage extends Component {
         </Segment>
         <Segment vetrical basic fluid placeholder>
             <CoverItem title={"Outreach"} contentUrl={"/media/ScotchOutreach/launch3.jpg"} content={<p>We love to share our passion for rockets while promoting STEM education and WA Science</p>} />
-        </Segment>*/}
+        </Segment>
         <Segment style={{ padding: '4em 0em' }} vertical basic>
-            {/*<Container text>
+            {<Container text>
             <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
                 Contact Us
             </Header>
@@ -72,11 +72,11 @@ class HomePage extends Component {
                 </Grid.Column>
                 </Grid.Row>
             </Grid>
-            </Container>*/}
-        </Segment>
+            </Container>
+        </Segment>*/}
         <Segment vertical basic>
             <Container text>
-            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
+            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '2em'}} className='header'>
                 Special Thanks To
             </Header>
             <Grid container centered columns={2} verticalAlign='middle' style={{paddingBottom: '2em'}}>

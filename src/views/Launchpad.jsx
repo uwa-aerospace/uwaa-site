@@ -10,7 +10,15 @@ export default class Launchpad extends Component {
                 <Grid container style={{marginTop: '6em'}}>
                     <Grid.Row>
                         <Segment basic>
-                            <CoverItem title={"Ariel (Cupid's Arrow)"} contentUrl={"/media/team_ariel.jpg"} content={<p>Ariel was the first rocket to be launched by the team on the 28th of July, 2018. The rocket served to educate our members on the general principles of rocketry and how various structural parts of the rocket were assembled as it was assembled from a ‘kit’. The rocket was used to attain Level 1 and Level 2 certifications on the same day, attaining altitudes of 300m and 1.13km. To date, the rocket has launched thrice successfully and is often used a small payload demonstrator.</p>} inverted={true} />
+                            <CoverItem 
+                                title={"Ariel (Cupid's Arrow)"} 
+                                contentUrl={"/media/team_ariel.jpg"} 
+                                content={
+                                    <>
+                                    <p>Ariel was the first rocket to be launched by the team on the 28th of July, 2018. The rocket served to educate our members on the general principles of rocketry and how various structural parts of the rocket were assembled as it was assembled from a kit.</p><p>The rocket was used to attain Level 1 and Level 2 certifications on the same day, attaining altitudes of 300m and 1.13km. To date, the rocket has launched thrice successfully and is often used a small payload demonstrator.</p>
+                                    </>
+                                } 
+                                inverted={true} />
                         </Segment>
                     </Grid.Row>
                     <Grid.Row>
@@ -20,9 +28,13 @@ export default class Launchpad extends Component {
                                 contentUrl={"/media/25th_August_Launch.jpg"} 
                                 inverted={false}
                                 content={
-                                    <p>'Jeff' is the first prototype rocket to be designed and built by UWA Aerospace. It served to resemble the rocket that would later be built to compete in the Australian Universities Rocket Competition. Jeff’s systems underwent extensive testing prior to its final assembly and debut launch on the 25th of August. The flight was successful Jeff soared to a height of 1.32km
-                                    A second launch was attempted on the 6th of October on a modified version of Jeff which saw the rocket reach an apogee of 2.94km. The purpose of this more intense launch was to closely emulate the launch profile of the final competition rocket and to ensure the structural integrity of the fuselage. During the descent phase however, the recovery system malfunctioned resulting in a harder than expected landing which weakened the fuselage.
-                                    </p>} />
+                                    <>
+                                    <p>'Jeff' is the first prototype rocket to be designed and built by UWA Aerospace. It served to resemble the rocket that would later be built to compete in the Australian Universities Rocket Competition. Jeff’s systems underwent extensive testing prior to its final assembly and debut launch on the 25th of August. The first flight was successful with Jeff soaring to a height of 1.32km.</p>
+                                    <p>
+                                        A second launch was attempted on the 6th of October on a modified version of Jeff which saw the rocket reach an apogee of 2.94km. The purpose of this more intense launch was to closely emulate the launch profile of the final competition rocket and to ensure the structural integrity of the fuselage. During the descent phase however, the recovery system malfunctioned resulting in a harder than expected landing which weakened the fuselage, and retiring the rocket from flight.
+                                    </p>
+                                    </>
+                                } />
                         </Segment>
                     </Grid.Row>
                     <Grid.Row>

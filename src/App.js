@@ -66,7 +66,7 @@ class DesktopContainer extends Component {
                   <Dropdown.Menu>
                     <Dropdown.Item icon='rocket' href="/launchpad" as="a" text='Launchpad' />
                     <Dropdown.Item icon='trophy' href="/aurc2018" as="a" text='2018-2019 AURC' />
-                    <Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />
+                    {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
                   </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Item as='a' href="/team">Team</Menu.Item>
