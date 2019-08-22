@@ -16,10 +16,10 @@ export default class OutreachView extends Component {
                     <p>The cost of our 2 hour program is <strong>$300</strong> for <strong>up to 60</strong> students.</p>
                 </Container>
                 <Container style={{marginTop: '4em'}}>
-                    <Grid container columns={2} centered>
+                    <Grid container columns={2} centered stackable>
                         <GridRow>
                             <GridColumn>
-                                <List relaxed='very'>
+                                <List relaxed='very' animated selection>
                                     <List.Header as='h2' content='Covering Key Learning Outcomes' />
                                     <List.Item>
                                         <List.Icon name='flask' /> Science Understanding
@@ -39,8 +39,8 @@ export default class OutreachView extends Component {
                                 </List>
                             </GridColumn>
                             <GridColumn>
+                                <List.Header as='h2' content='Requirements' />
                                 <List relaxed='very' floated='right'>
-                                    <List.Header as='h2' content='Requirements' />
                                     <List.Item>Sports Oval</List.Item>
                                     <List.Item>Please provide teacher supervision and enthusiastic students!</List.Item>
                                     <List.Item>Indoor Classroom for Construction</List.Item>
@@ -49,7 +49,7 @@ export default class OutreachView extends Component {
                             </GridColumn>
                         </GridRow>
                         <Container style={{marginTop: '4em'}}>
-                            <Header as='h2' horizontal content="Feedback We've Received" textAlign='center' dividing />
+                            <Header as='h2' horizontal content="Feedback We've Received" textAlign='center' />
                             <Grid stackable columns={2} centered>
                                 <GridColumn>
                                     <Comment.Group size='large'>

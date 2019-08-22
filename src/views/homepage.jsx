@@ -10,7 +10,8 @@ import {
     Segment,
     Placeholder,
     Responsive,
-    Transition,} from 'semantic-ui-react';
+    Transition,
+    Button,} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 import CoverItem from '../Components/CoverItem';
 
@@ -22,8 +23,9 @@ class HomePage extends Component {
   
       return (
         <div>
-        <Responsive as={Container} {...Responsive.onlyComputer} fluid basic>
+        <Responsive as={Container} {...Responsive.onlyComputer} fluid textAlign='center'>
             <Image fluid src={"./media/aurc/prep_banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
+            <Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
             {/*<Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
         </Responsive>
         {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>

@@ -15,7 +15,7 @@ export default class TeamView extends Component {
     render() {
         return (
             <Grid centered container stackable>
-                <GridRow style={{marginTop: '4em'}}>
+                <GridRow style={{marginTop: '6em'}}>
                     <Container text>
                         <Header as="h1" horizontal style={{paddingBottom: '1em'}} className='header'>
                             Team Members
@@ -82,65 +82,65 @@ export default class TeamView extends Component {
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Steffen.png'}/>}
-                            header='Steffen Remvik'
-                            meta='Recovery & Tallest Member'
-                            raised
-                            />
-                            <Card
                             image={<Image fluid src={'/media/team/Akash.png'}/>}
                             header='Conrad Schmidt'
                             meta='Aerostructures & Finance'
                             raised
                             />
-                            {/*<Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
-                            header='Harrison Hill'
-                            meta='Aerostructures'
-                            raised
-                            />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
+                            image={<Image fluid src={'/media/logo.png'}/>}
                             header='Peylin Ng'
                             meta='Avionics'
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
+                            image={<Image fluid src={'/media/logo.png'}/>}
                             header='Andrew Munt'
                             meta='Avionics'
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
-                            header='Steph anus'
+                            image={<Image fluid src={'/media/logo.png'}/>}
+                            header='Stephan'
                             meta='Avionics'
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
+                            image={<Image fluid src={'/media/logo.png'}/>}
                             header='Toby Dingey'
                             meta='Avionics'
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
-                            header='Steph anus '
-                            meta='Avionics'
-                            raised
-                            />
-                            <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
+                            image={<Image fluid src={'/media/logo.png'}/>}
                             header='James Oakey'
                             meta='Avionics'
                             raised
                             />
                             <Card
-                            image={<Image fluid src={'/media/team/Harry.png'}/>}
-                            header=''
+                            image={<Image fluid src={'/media/logo.png'}/>}
+                            header='Calegero Martelli'
                             meta='Aerostructures'
                             raised
-                            />*/}
+                            />
+                            <Card
+                            image={<Image fluid src={'/media/logo.png'}/>}
+                            header='Vlad Pavkov'
+                            meta='Aerostructures'
+                            raised
+                            />
+                            <Card
+                            image={<Image fluid src={'/media/logo.png'}/>}
+                            header='William Siebert'
+                            meta='Aerostructures'
+                            raised
+                            />
+                            <Card
+                            image={<Image fluid src={'/media/logo.png'}/>}
+                            header='Thomas Wilkinson'
+                            meta='Aerostructures'
+                            raised
+                            />
                         </Card.Group>
                     </GridColumn>
                 </GridRow>
