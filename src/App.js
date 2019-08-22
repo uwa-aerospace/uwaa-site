@@ -90,6 +90,8 @@ class DesktopContainer extends Component {
               direction='left'
               animation="overlay"
               icon="labeled"
+<<<<<<< HEAD
+=======
               inverted
               vertical
               visible={visible}
@@ -118,6 +120,43 @@ class DesktopContainer extends Component {
           </Sidebar.Pushable>
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Segment
+            basic
+            inverted
+            textAlign='center'
+            vertical>
+            <Menu
+              fixed={'top'}
+>>>>>>> 3389756f061357528ac89b107eec4501d325d39d
+              inverted
+              vertical
+              visible={visible}
+            >
+              <MenuItems />
+            </Sidebar>
+            <Sidebar.Pusher
+              dimmed={visible}
+              onClick={() => this.handlePusher()}
+              style={{ minHeight: "100vh", overflow: 'visible!important' }}
+            >
+              <Menu
+                fixed={'top'}
+                inverted
+                size='small'
+              >
+                <Menu.Item header icon href="/">
+                  <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
+                </Menu.Item>
+<<<<<<< HEAD
+                <Menu.Item onClick={() => this.handleToggle()} position='right'>
+                  <Icon name="sidebar" />
+                </Menu.Item>
+              </Menu>
+              {children}
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
+        </Responsive>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <Menu
             fixed={'top'}
             inverted
@@ -131,6 +170,12 @@ class DesktopContainer extends Component {
               <MenuItems />
             </Container>
           </Menu>
+=======
+                <MenuItems />
+              </Container>
+            </Menu>
+          </Segment>
+>>>>>>> 3389756f061357528ac89b107eec4501d325d39d
           {children}
         </Responsive>
       </div>
@@ -149,7 +194,7 @@ class App extends Component {
     return(
       <Router>
         <DesktopContainer>
-          <Container fluid style={{minHeight: '100vh'}}>
+          <Container fluid style={{minHeight: '100vh', marginTop: "5em"}}>
               <Route exact path="/" component={HomePage} />
               <Route path="/team" component={TeamView} />
               <Route path="/aurc2018" component={Comp2018} />
