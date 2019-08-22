@@ -4,10 +4,12 @@ import {
   Container,
   Dropdown,
   Header,
+  Icon,
   Image,
   Menu,
   Responsive,
-  Segment} from 'semantic-ui-react';
+  Segment,
+  Sidebar} from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group-v2";
 
@@ -38,20 +40,88 @@ import Launchpad from './views/Launchpad';
     mobile: PropTypes.bool,
   }
 
+const MenuItems = () => (
+  <>
+    <Dropdown item text='Missions'>
+      <Dropdown.Menu>
+        <Dropdown.Item icon='rocket' href="/launchpad" as="a" text='Launchpad' />
+        <Dropdown.Item icon='trophy' href="/aurc2018" as="a" text='2018-2019 AURC' />
+        {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
+      </Dropdown.Menu>
+    </Dropdown>
+    <Menu.Item as='a' href="/team">Our Team</Menu.Item>
+    <Menu.Item as='a' href='/outreach'>Outreach</Menu.Item>
+  </>
+)
+
+
 class DesktopContainer extends Component {
-  state = {}
+  state = {
+    visible: false
+  };
+
+  handlePusher = () => {
+    const { visible } = this.state;
+
+    if (visible) this.setState({ visible: false });
+  };
+
+  handleToggle = () => this.setState({ visible: !this.state.visible });
 
   render() {
     const { children } = this.props
+    const {visible} = this.state
 
     return (
-      <Responsive>
+      <div>
+        <Responsive {...Responsive.onlyMobile}>
+          <style>
+            {`
+              #id_pushable {
+                overflow: visible !important;
+              }
+            `}
+          </style>
+          <Sidebar.Pushable>
+            <Sidebar
+              id='id_pushable'
+              as={Menu}
+              direction='left'
+              animation="overlay"
+              icon="labeled"
+              inverted
+              vertical
+              visible={visible}
+            >
+              <MenuItems />
+            </Sidebar>
+            <Sidebar.Pusher
+              dimmed={visible}
+              onClick={() => this.handlePusher()}
+              style={{ minHeight: "100vh", overflow: 'visible!important' }}
+            >
+              <Menu
+                fixed={'top'}
+                inverted
+                size='small'
+              >
+                <Menu.Item header icon href="/">
+                  <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
+                </Menu.Item>
+                <Menu.Item onClick={() => this.handleToggle()} position='right'>
+                  <Icon name="sidebar" />
+                </Menu.Item>
+              </Menu>
+              {children}
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
+        </Responsive>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <Segment
             basic
             inverted
             textAlign='center'
-            vertical
-          >
+            vertical>
             <Menu
               fixed={'top'}
               inverted
@@ -62,21 +132,13 @@ class DesktopContainer extends Component {
                 <Menu.Item header icon href="/">
                   <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
                 </Menu.Item>
-                <Dropdown item text='Rockets'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item icon='rocket' href="/launchpad" as="a" text='Launchpad' />
-                    <Dropdown.Item icon='trophy' href="/aurc2018" as="a" text='2018-2019 AURC' />
-                    {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
-                  </Dropdown.Menu>
-                </Dropdown>
-                <Menu.Item as='a' href="/team">Team</Menu.Item>
-                <Menu.Item as='a' href='/outreach'>Outreach</Menu.Item>
+                <MenuItems />
               </Container>
             </Menu>
           </Segment>
-
-        {children}
-      </Responsive>
+          {children}
+        </Responsive>
+      </div>
     )
   }
 }
@@ -92,7 +154,7 @@ class App extends Component {
     return(
       <Router>
         <DesktopContainer>
-          <Container fluid style={{minHeight: '100vh'}}>
+          <Container fluid style={{minHeight: '100vh', marginTop: "5em"}}>
               <Route exact path="/" component={HomePage} />
               <Route path="/team" component={TeamView} />
               <Route path="/aurc2018" component={Comp2018} />
@@ -108,7 +170,6 @@ class App extends Component {
             </Container>
           </Segment>
         </DesktopContainer>
-        
       </Router>
     )
   }

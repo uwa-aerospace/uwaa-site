@@ -20,7 +20,7 @@ class SummaryText extends Component {
                 </Header>
                 {this.props.content}
                 {this.props.moreUrl ? 
-                    (<Button as={Link} to={this.props.moreUrl} content={buttonText} basic floated="right" />) : (<></>)
+                    (<Button as={Link} to={this.props.moreUrl} content={buttonText} floated="right" />) : (<></>)
                 }
             </Container>
         )
