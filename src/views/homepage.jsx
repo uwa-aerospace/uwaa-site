@@ -24,9 +24,9 @@ class HomePage extends Component {
       return (
         <div>
         <Responsive as={Container} {...Responsive.onlyComputer} fluid textAlign='center'>
-            <Image fluid src={"./media/aurc/prep_banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
-            <Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
-            {/*<Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
+            <Image fluid src={"./media/aurc/banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
+            {/*<Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
+            <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
         </Responsive>
         {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>
@@ -79,7 +79,7 @@ class HomePage extends Component {
         <Segment vertical basic>
             <Container text>
             <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '2em'}} className='header'>
-                Special Thanks To
+                Special Thanks To Our Partners
             </Header>
             <Grid container centered columns={2} verticalAlign='middle' style={{paddingBottom: '2em'}}>
                 <Grid.Column>

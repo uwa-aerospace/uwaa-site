@@ -1,55 +1,85 @@
 import React, {Component} from 'react';
-import { Comment, Header, Image, Grid, GridRow, Container, List, Icon, Segment, GridColumn} from 'semantic-ui-react';
+import { Comment, Header, Image, Grid, GridRow, Container, List, Icon, Segment, GridColumn, Transition} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 
+import Quote from '../Components/Quote';
+
+
+const quotes = [
+    {author:'Karen', meta: 'Year 4', text:'“It was really fun to make our own models because we got to work as a team with our friends.”'},
+    {author:'Imogen', meta: 'Year 5', text:'“I liked seeing the rockets that the UWA team made.”'},
+    {author:'Seth', meta: 'Year 5', text:'“At the end of the day, I changed my mind about what I want to be when I am older!”'},
+    {author:'Tom', meta: 'Year 6', text:'“I think the incursion was really cool and would like to do it again.”'},
+    {author:'Taj', meta: 'Year 5', text:'“The best part was learning about rockets and seeing how they are made.”'},
+    {author:'Riley', meta: 'Year 6', text: '“It was awesome! We got to work as a team to learn how rockets actually work and fly.”'},
+    {author: 'Sierra', meta: 'Year 4', text: '“I think they should come every year”'},
+    {author: 'Lilly', meta: 'Year 4', text: '“I liked making mistakes and trying to fix them”'},
+
+
+]
+
+const outcomes = [
+    {key: 1, icon: 'flask', content: 'Science Understanding'},
+    {key: 2, icon: 'lightbulb', content: 'Science Inquiry Skills'},
+    {key: 3, icon: 'trophy', content: 'Science as a Human Endeavour'},
+    {key: 4, icon: 'leaf', content: 'Earth and Space Sciences'},
+    {key: 5, icon: 'paper plane', content: 'Physical Sciences'},
+]
+
 export default class OutreachView extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            quotes: quotes,
+            quote_num: 0,
+            quote_length: 10000,
+            visible: true,
+        }
+    }
+
+    tick() {
+        this.setState({visible: false});
+        setTimeout(() => {
+            this.setState(prevState => ({
+                quote_num: (prevState.quote_num + 1) % quotes.length
+            }));
+            this.setState({visible: true});
+        }, 600);
+      }
+
+      componentDidMount() {
+        this.interval = setInterval(() => this.tick(), this.state.quote_length);
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.interval);
+      }
+
     render() {
+        const quote = this.state.quotes[this.state.quote_num];
         return (
             <Container fluid>
                 <Container text textAlign='center' style={{marginTop: '6em'}}>       
-                    <Header as="h1" horizontal style={{paddingBottom: '1em'}} className='header'>
+                    <Header as="h1" style={{paddingBottom: '1em'}} className='header'>
                         What We Offer
                     </Header>
                     <p>Our Outreach Program encourages students to engage in creative problem solving and teamwork, which are vital skills for the modern world.
                     Our customised rocket program is ideal for school incursions, community groups. It's a great opportunity to learn about real-world science and apply theoretical concepts to the real-world.
                     Students will design, test and build bottle rockets which will be launched at the conclusion of the workshop.</p>
-                    <p>The cost of our 2 hour program is <strong>$300</strong> for <strong>up to 60</strong> students.</p>
                 </Container>
                 <Container style={{marginTop: '4em'}}>
                     <Grid container columns={2} centered stackable>
-                        <GridRow>
-                            <GridColumn>
-                                <List relaxed='very' animated selection>
-                                    <List.Header as='h2' content='Covering Key Learning Outcomes' />
-                                    <List.Item>
-                                        <List.Icon name='flask' /> Science Understanding
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name='lightbulb' /> Science Inquiry Skills
-                                    </List.Item>
-                                    <List.Item>    
-                                        <List.Icon name='trophy' /> Science as a Human Endeavour
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name='leaf' /> Earth and Space Sciences
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name='paper plane' /> Physical Sciences
-                                    </List.Item>
-                                </List>
-                            </GridColumn>
-                            <GridColumn>
-                                <List.Header as='h2' content='Requirements' />
-                                <List relaxed='very' floated='right'>
-                                    <List.Item>Sports Oval</List.Item>
-                                    <List.Item>Please provide teacher supervision and enthusiastic students!</List.Item>
-                                    <List.Item>Indoor Classroom for Construction</List.Item>
-                                    <List.Item>We provide all materials</List.Item>
-                                </List>
-                            </GridColumn>
-                        </GridRow>
+                        <List.Header as='h2' content='Learning Outcomes' />
+                        <List 
+                            relaxed='very' 
+                            animated 
+                            selection
+                            horizontal
+                            size='huge' 
+                            items={outcomes}
+                        />
                         <Container style={{marginTop: '4em'}}>
-                            <Header as='h2' horizontal content="Feedback We've Received" textAlign='center' />
+                            {/*<Header as='h2' horizontal content="Feedback We've Received" textAlign='center' />
                             <Grid stackable columns={2} centered>
                                 <GridColumn>
                                     <Comment.Group size='large'>
@@ -96,10 +126,19 @@ export default class OutreachView extends Component {
                                         </Comment>
                                     </Comment.Group>
                                 </GridColumn>
-                            </Grid>
+                            </Grid>*/}
+                            <Container raised={false} padded='very' attached='bottom' basic>
+                                <Transition animation='fade' visible={this.state.visible}>
+                                    <div>
+                                        <Quote author={quote.author} meta={quote.meta} quote={quote.text} />
+                                    </div>
+                                </Transition>
+                            {/*<Comment.Group items={this.state.quotes.slice(this.state.quote_num, this.state.quote_num)} size='huge' />*/}
+                                    
+                            </Container>
                         </Container>
                     </Grid>
-                    <Container text style={{paddingBottom: '1em', paddingTop: '3em'}}>
+                    {/*<Container text style={{paddingBottom: '1em', paddingTop: '3em'}}>
                         <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '1em'}} className='header'>
                             Contact Us
                         </Header>
@@ -120,7 +159,7 @@ export default class OutreachView extends Component {
                             </Grid.Column>
                             </Grid.Row>
                         </Grid>
-                    </Container>
+                    </Container>*/}
                 </Container>
             </Container>
         )

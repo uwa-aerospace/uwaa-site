@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Container,
   Dropdown,
+  Grid,
   Header,
   Icon,
   Image,
@@ -10,48 +11,65 @@ import {
   Menu,
   Responsive,
   Segment,
-  Sidebar} from 'semantic-ui-react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group-v2";
+  Sidebar,
+  Transition,
+  Modal} from 'semantic-ui-react';
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { TransitionGroup } from "react-transition-group-v2";
 
 import HomePage from './views/homepage';
 import TeamView from './views/TeamView';
-import Comp2018 from './views/Comp2018View';
 import OutreachView from './views/OutreachView';
 import Launchpad from './views/Launchpad';
 
-  const HomepageHeading = ({ mobile }) => (
-    <Container textAlign='center'>
-      <Header
-        as='h1'
-        textAlign='center'
-        content='UWA Aerospace'
-        inverted
-        style={{
-          fontSize: mobile ? '2em' : '4em',
-          fontWeight: 'normal',
-          marginBottom: mobile? '1em' : '2em',
-          marginTop: mobile ? '1em' : '2em',
-        }}
-      />
-    </Container>
-  )
-  
-  HomepageHeading.propTypes = {
-    mobile: PropTypes.bool,
-  }
+import Gallery from './Components/Gallery'
 
-const MenuItems = () => (
+const HomepageHeading = ({ mobile }) => (
+  <Container textAlign='center'>
+    <Header
+      as='h1'
+      textAlign='center'
+      content='UWA Aerospace'
+      inverted
+      style={{
+        fontSize: mobile ? '2em' : '4em',
+        fontWeight: 'normal',
+        marginBottom: mobile? '1em' : '2em',
+        marginTop: mobile ? '1em' : '2em',
+      }}
+    />
+  </Container>
+)
+  
+HomepageHeading.propTypes = {
+  mobile: PropTypes.bool,
+}
+
+const MenuItems = ({mobile}) => (
   <>
-    <Dropdown item text='Missions'>
+    <Dropdown item simple={!mobile} text='Missions'>
       <Dropdown.Menu>
-        <Dropdown.Item icon='rocket' href="/launchpad" as="a" text='Launchpad' />
-        <Dropdown.Item icon='trophy' href="/aurc2018" as="a" text='2018-2019 AURC' />
+        <Dropdown.Item icon='rocket' to="/launchpad" as={Link} text='Launchpad' />
+        <Dropdown.Item as="a" text='Ariel' />
+        <Dropdown.Item as="a" text='Jeff' />
+        <Dropdown.Item as="a" text='Finley' />
+        <Dropdown.Item as="a" text='QAD' />
         {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
       </Dropdown.Menu>
     </Dropdown>
-    <Menu.Item as='a' href="/team">Our Team</Menu.Item>
-    <Menu.Item as='a' href='/outreach'>Outreach</Menu.Item>
+    <Dropdown item simple={!mobile} text='Our Team'>
+      <Dropdown.Menu>
+        <Dropdown.Item text='About Us' to='/team' as={Link} />
+        <Dropdown.Item text='Apply Now' href='https://forms.gle/XBN4GzdspLjGJt1p7' as='a' target='_blank'/>
+      </Dropdown.Menu>
+    </Dropdown>
+    <Modal 
+      centered
+      size='large'
+      trigger={<Menu.Item as='a'>Media</Menu.Item>} 
+      content={<Gallery />}
+      />
+    <Menu.Item as={Link} to='/outreach'>Outreach</Menu.Item>
   </>
 )
 
@@ -93,8 +111,9 @@ class DesktopContainer extends Component {
               inverted
               vertical
               visible={visible}
+              size='small'
             >
-              <MenuItems />
+              <MenuItems mobile={true} />
             </Sidebar>
             <Sidebar.Pusher
               dimmed={visible}
@@ -104,10 +123,10 @@ class DesktopContainer extends Component {
               <Menu
                 fixed={'top'}
                 inverted
-                size='small'
+                size='large'
               >
-                <Menu.Item header icon href="/">
-                  <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
+                <Menu.Item header icon to="/" as={Link}>
+                  <Header as='h3' image inverted className='header'><Image size='medium' src={'/media/Logo.png'} />UWA Aerospace</Header>
                 </Menu.Item>
                 <Menu.Item onClick={() => this.handleToggle()} position='right'>
                   <Icon name="sidebar" />
@@ -122,13 +141,15 @@ class DesktopContainer extends Component {
             fixed={'top'}
             inverted
             pointing
-            size='large'
+            size='huge'
           >
             <Container>
-              <Menu.Item header icon href="/">
-                <Header as='h3' image inverted className='header'><Image size='small' src={'/media/logo-plain.png'} />UWA Aerospace</Header>
+              <Menu.Item header icon to="/" as={Link}>
+                <Header as='h3' image inverted className='header'><Image size='medium' src={'/media/Logo.png'} />UWA Aerospace</Header>
               </Menu.Item>
-              <MenuItems />
+              <Menu.Menu position='right'>
+                <MenuItems mobile={false} />
+              </Menu.Menu>
             </Container>
           </Menu>
           {children}
@@ -144,28 +165,72 @@ DesktopContainer.propTypes = {
 
 
 class App extends Component {
+  
   render ()  {
     var year = new Date().getFullYear();
     return(
-      <Router>
+      <BrowserRouter forceRefresh={false}>
         <DesktopContainer>
           <Container fluid style={{minHeight: '100vh'}}>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/team" component={TeamView} />
-              <Route path="/aurc2018" component={Comp2018} />
-              <Route path="/launchpad" component={Launchpad} />
-              <Route path='/outreach' component={OutreachView} />
+            <Route render={({location}) => {
+              const {pathname, key} = location;
+              return (
+                <Transition.Group>
+                  <Switch location={location}>
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/team" component={TeamView} />
+                    <Route exact path="/launchpad" component={Launchpad} />
+                    <Route exact path='/outreach' component={OutreachView} />   
+                  </Switch>
+                </Transition.Group>
+              )
+            }}/>
+            
           </Container>
 
-          <Segment inverted vertical textAlign='center' attached='top'>
-            <Container text>
-              <Header textAlign='center' as='h5' image inverted>
-                © Copyright 2018-{year} - UWA Aerospace
-              </Header>
+          <Segment inverted vertical textAlign='center' style={{ padding: '3em 0em' }}>
+            <Container>
+              <Grid inverted stackable centered>
+                <Grid.Row verticalAlign='bottom'>
+                  <Grid.Column width={6}>
+                    <Header inverted as='h4' content='Contact Us' textAlign='center' />
+                    <Grid columns={2} inverted divided verticalAlign='middle'>
+                      <Grid.Column>
+                        <List link inverted>
+                          <List.Item as='a' href='https://goo.gl/maps/Wm5fVCWFvksBqmoi7' target='_blank'>
+                            <Icon name='map outline' /> 35 Stirling Hwy, 6009 Perth WA
+                            The University of Western Australia  
+                          </List.Item>
+                        </List>
+                      </Grid.Column>
+                      <Grid.Column>
+                        <List link inverted>
+                          <List.Item as='a' href='https://www.facebook.com/UWAAerospace/' target='_blank'>
+                            <Icon name='facebook f' />
+                            Facebook
+                          </List.Item>
+                          <List.Item as='a' href='mailto:hello@uwaaerospace.org'>
+                            <Icon name='mail square' />
+                            hello@uwaerospace.org
+                          </List.Item>
+                        </List>
+                      </Grid.Column>
+                    </Grid>
+                  </Grid.Column>
+
+                  <Grid.Column width={12} floated='right'>
+                    <List link inverted>
+                    <List.Item as='h5' style={{float: 'right'}}>
+                      © 2018-{year} - UWA Aerospace
+                    </List.Item>
+                    </List>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
             </Container>
           </Segment>
         </DesktopContainer>
-      </Router>
+      </BrowserRouter>
     )
   }
 }
