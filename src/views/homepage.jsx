@@ -28,6 +28,24 @@ class HomePage extends Component {
             {/*<Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
             <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
         </Responsive>
+        <Container fluid>
+            <Segment padded='very' basic textAlign='center' tertiary>
+                <Container text>
+                    <Header as='h2'>UWA Aerospace is a student led technical team focused on developing high-powered rockety capabilities in Western Australia.</Header>
+                    <Header as='h2'>We design, build, and launch our rockets for high-altitude research, as well as promote space science and STEM in the Community.</Header>
+                </Container>
+            </Segment>
+        </Container>
+        <Container text style={{paddingTop:'4em', paddingBottom: '2em'}} textAlign='center'>
+            <Header as='h2' content="2019/2020 Objectives" textAlign='center' />
+            <p><strong>This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments through the following missions.</strong></p>
+            <List animated selection size='large' relaxed='very' ordered>
+                <List.Item>QAD - Developing an innovative and improved recovery system</List.Item>
+                <List.Item>Echidna - </List.Item>
+                <List.Item>Platypus - </List.Item>
+                <List.Item>Roo -</List.Item>
+            </List>
+        </Container>
         {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>
                 <Header as="h2" content="UWA Aerospace is a technical student team developing skills relevant to engineering in extreme environments. We design, build, test, and launch university-level competitions and as platforms for high-altitude research. We also promote space, science, and STEM to the broader WA Community." />
