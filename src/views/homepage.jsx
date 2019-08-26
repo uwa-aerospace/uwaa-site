@@ -8,12 +8,39 @@ import {
     Image,
     List,
     Segment,
-    Placeholder,
+    Icon,
     Responsive,
     Transition,
     Button,} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 import CoverItem from '../Components/CoverItem';
+
+const Banner = ({mobile}) => (
+    <Container id='banner' fluid style={{
+        backgroundImage: "url(./media/aurc/banner.jpg)",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '60vh',
+        opacity: 0.9,
+    }}>
+        <Container id='banner-header' textAlign='center'>
+            <Transition animation='fade' visible={() => { setTimeout(() => {return true;}, 500); return false;}}>
+                <Header
+                    inverted
+                    as='h1'
+                    style={{
+                        fontSize: mobile ? '4em' : '8em',
+                        fontWeight: 'bold',
+                        marginBottom: 0,
+                        paddingTop: mobile ? '70%' : '50%',
+                    }}>
+                    UWA Aerospace
+                </Header>
+            </Transition>
+        </Container>
+    </Container>
+)
 
 class HomePage extends Component {
     state = {}
@@ -22,30 +49,35 @@ class HomePage extends Component {
       const { children } = this.props
   
       return (
-        <div>
-        <Responsive as={Container} {...Responsive.onlyComputer} fluid textAlign='center'>
-            <Image fluid src={"./media/aurc/banner.jpg"} style={{minHeight: "100%", opacity: 0.9}} />
-            {/*<Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
-            <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
-        </Responsive>
-        <Container fluid>
-            <Segment padded='very' basic textAlign='center' tertiary>
+        <Container fluid id='second-container'>
+            <Responsive {...Responsive.onlyMobile}>
+                <Banner mobile={true} />
+                {/*<Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
+                <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
+            </Responsive>
+            <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+                <Banner mobile={false} />
+                {/*<Button basic inverted content={<Header inverted as='h1' content='See More' />} style={{position: "absolute", marginTop: '-20vh'}} />
+                <Header size="huge" inverted textAlign='center' content="Empowering Western Australian Students" style={{marginTop: '-4em', position: "relative", fontSize: '4em'}} />*/}
+            </Responsive>
+            <Segment vertical padded='very' basic textAlign='center' tertiary>
                 <Container text>
                     <Header as='h2'>UWA Aerospace is a student led technical team focused on developing high-powered rockety capabilities in Western Australia.</Header>
                     <Header as='h2'>We design, build, and launch our rockets for high-altitude research, as well as promote space science and STEM in the Community.</Header>
                 </Container>
             </Segment>
-        </Container>
-        <Container text style={{paddingTop:'4em', paddingBottom: '2em'}} textAlign='center'>
-            <Header as='h2' content="2019/2020 Objectives" textAlign='center' />
-            <p><strong>This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments through the following missions.</strong></p>
-            <List animated selection size='large' relaxed='very' ordered>
-                <List.Item>QAD - Developing an innovative and improved recovery system</List.Item>
-                <List.Item>Echidna - </List.Item>
-                <List.Item>Platypus - </List.Item>
-                <List.Item>Roo -</List.Item>
-            </List>
-        </Container>
+            <Container text style={{paddingTop:'6em', paddingBottom: '2em'}} textAlign='center'>
+                <Header as='h2' textAlign='center'>
+                    <Icon name='ordered list' /> 2019/2020 Objectives 
+                </Header>
+                <h3>This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments through the following missions:</h3>
+                <List size='large' relaxed='very' ordered>
+                    <List.Item>QAD - Developing an innovative and improved recovery system</List.Item>
+                    <List.Item>Echidna - Developing an advanced high-altitude avionics system</List.Item>
+                    <List.Item>Platypus - Developing and launching our first supersonic rocket</List.Item>
+                    <List.Item>Roo - Launching a rocket over 20,000 ft.</List.Item>
+                </List>
+            </Container>
         {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>
                 <Header as="h2" content="UWA Aerospace is a technical student team developing skills relevant to engineering in extreme environments. We design, build, test, and launch university-level competitions and as platforms for high-altitude research. We also promote space, science, and STEM to the broader WA Community." />
@@ -94,25 +126,25 @@ class HomePage extends Component {
             </Grid>
             </Container>
         </Segment>*/}
-        <Segment vertical basic>
-            <Container text>
-            <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '2em'}} className='header'>
-                Special Thanks To Our Partners
-            </Header>
-            <Grid container centered columns={2} verticalAlign='middle' style={{paddingBottom: '2em'}}>
-                <Grid.Column>
-                    <Image centered size='medium' href='https://www.riotinto.com/' target='_blank' src={'/media/RioTinto.jpg'} />
-                </Grid.Column>
-                <Grid.Column>
-                    <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
-                </Grid.Column>
-                <Grid.Column>
-                    <Image centered size='medium' href='http://www.uwa.edu.au' target='_blank' src={'/media/UWALogo.jpg'} />
-                </Grid.Column>
-            </Grid>
-            </Container>
-        </Segment>
-        </div>
+            <Segment vertical basic>
+                <Container text>
+                    <Header textAlign='center' as='h2' style={{paddingBottom: '1em', paddingTop: '2em'}} className='header'>
+                        Special Thanks To Our Partners
+                    </Header>
+                    <Grid centered columns={2} verticalAlign='middle' style={{paddingBottom: '2em'}} doubling stackable stretched>
+                        <Grid.Column>
+                            <Image centered size='medium' href='https://www.riotinto.com/' target='_blank' src={'/media/RioTinto.jpg'} />
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image centered size='medium' href='http://www.uwa.edu.au' target='_blank' src={'/media/UWALogo.jpg'} />
+                        </Grid.Column>
+                    </Grid>
+                </Container>
+            </Segment>
+        </Container>
         )
     }
 }

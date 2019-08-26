@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { Container, Image, Grid, Header, Divider, Label, List, Icon } from 'semantic-ui-react';
+import { Container, Image, Grid, Header, Divider, Label, List, Segment } from 'semantic-ui-react';
 import CoverItem from '../Components/CoverItem';
 
 
 class RocketDetailComponent extends Component {
     render() {
-        const {src, rocketName, labels, content, statistics} = this.props;
+        const {src, rocketName, labels, content, statistics, refer} = this.props;
         return (
             <>
                 <Grid.Column>
@@ -42,11 +42,58 @@ class RocketDetailComponent extends Component {
 }
 
 export default class Launchpad extends Component {
+    constructor(props) {
+        super(props);
+        this.cupid = React.createRef();
+        this.jeff = React.createRef();
+        this.finley = React.createRef();
+        this.qad = React.createRef();
+        this.mapping = {
+            'ariel': this.cupid,
+            'jeff': this.jeff,
+            'finley': this.finley,
+            'qad': this.qad,
+        }
+    }
+
+    componentDidMount () {
+        const handle = this.props.match.params.ref;
+        console.log(handle)
+        if (handle != undefined && handle != null) {
+            //this.mapping[handle].current.scrollIntoView({ behavior: 'smooth' });
+            const ref = this.mapping[handle]
+            console.log(ref.current.offsetTop)
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+            //window.scrollTo(0, ref.current.offsetBottom)
+        }
+    }
 
     render() {
         const padding = '3em'
         return (
-            <Container>
+            <Container fluid id='rocket-container'>
+                <Segment 
+                    inverted
+                    textAlign='center'
+                    style={{ minHeight: 200, padding: '1em 0em' }}
+                    vertical
+                    secondary>
+                    <Container text>
+                        <Header
+                        as='h1'
+                        content='Rockets'
+                        inverted
+                        style={{
+                            fontSize:'3.5em',
+                            fontWeight: 'normal',
+                            marginBottom: 0,
+                            marginTop: '2em',
+                        }}
+                        />
+                    </Container>
+                </Segment>
+                <Container>
+                <div ref={this.cupid}></div>
                 <Grid 
                     container 
                     style={{marginTop: '6em', marginBottom: '3em'}} 
@@ -56,6 +103,7 @@ export default class Launchpad extends Component {
                     relaxed='very'>
                     <Grid.Row style={{paddingTop: padding, paddingBottom: padding}}>
                         <RocketDetailComponent 
+                            refer={this.cupid}
                             src='/media/rockets/cupidsarrow.jpg'
                             rocketName="Cupid's Arrow"
                             labels={
@@ -69,6 +117,7 @@ export default class Launchpad extends Component {
                             />
                     </Grid.Row>
                     <Divider clearing section/>
+                    <div ref={this.jeff}></div>
                     <Grid.Row style={{paddingTop: padding, paddingBottom: padding}}>
                         <RocketDetailComponent 
                             src='/media/rockets/jeff.png'
@@ -87,6 +136,7 @@ export default class Launchpad extends Component {
                             />
                     </Grid.Row>
                     <Divider clearing section />
+                    <div ref={this.finley}></div>
                     <Grid.Row style={{paddingTop: padding, paddingBottom: padding}}>
                         <RocketDetailComponent 
                             src='/media/rockets/finley.jpg'
@@ -107,6 +157,7 @@ export default class Launchpad extends Component {
                             />
                     </Grid.Row>
                     <Divider clearing section />
+                    <div ref={this.qad}></div>
                     <Grid.Row style={{paddingTop: padding, paddingBottom: padding}}>
                         <RocketDetailComponent 
                             src='/media/rockets/QAD.jpg'
@@ -124,6 +175,7 @@ export default class Launchpad extends Component {
                             />
                     </Grid.Row>
                 </Grid>
+                </Container>
             </Container>
         );
     }

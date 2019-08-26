@@ -14,8 +14,7 @@ import {
   Sidebar,
   Transition,
   Modal} from 'semantic-ui-react';
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import { TransitionGroup } from "react-transition-group-v2";
+import { BrowserRouter, Route, Link, Switch, NavLink } from "react-router-dom";
 
 import HomePage from './views/homepage';
 import TeamView from './views/TeamView';
@@ -49,27 +48,22 @@ const MenuItems = ({mobile}) => (
   <>
     <Dropdown item simple={!mobile} text='Missions'>
       <Dropdown.Menu>
-        <Dropdown.Item icon='rocket' to="/launchpad" as={Link} text='Launchpad' />
-        <Dropdown.Item as="a" text='Ariel' />
-        <Dropdown.Item as="a" text='Jeff' />
-        <Dropdown.Item as="a" text='Finley' />
-        <Dropdown.Item as="a" text='QAD' />
+        
+        <Dropdown.Item as={NavLink} to='/launchpad/ariel' text='Ariel' />
+        <Dropdown.Item as={NavLink} to='/launchpad/jeff' text='Jeff' />
+        <Dropdown.Item as={NavLink} to='/launchpad/finley' text='Finley' />
+        <Dropdown.Item as={NavLink} to='/launchpad/qad' text='QAD' />
         {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
       </Dropdown.Menu>
     </Dropdown>
-    <Dropdown item simple={!mobile} text='Our Team'>
-      <Dropdown.Menu>
-        <Dropdown.Item text='About Us' to='/team' as={Link} />
-        <Dropdown.Item text='Apply Now' href='https://forms.gle/XBN4GzdspLjGJt1p7' as='a' target='_blank'/>
-      </Dropdown.Menu>
-    </Dropdown>
-    <Modal 
+    <Menu.Item as={NavLink} to='/team'>Our Team</Menu.Item>
+    {/*<Modal 
       centered
       size='large'
       trigger={<Menu.Item as='a'>Media</Menu.Item>} 
       content={<Gallery />}
-      />
-    <Menu.Item as={Link} to='/outreach'>Outreach</Menu.Item>
+    />*/}
+    <Menu.Item as={NavLink} to='/outreach'>Outreach</Menu.Item>
   </>
 )
 
@@ -118,7 +112,7 @@ class DesktopContainer extends Component {
             <Sidebar.Pusher
               dimmed={visible}
               onClick={() => this.handlePusher()}
-              style={{ minHeight: "100vh", overflow: 'visible!important' }}
+              style={{ minHeight: "100vh", minWidth:'100vw', overflow: 'visible!important' }}
             >
               <Menu
                 fixed={'top'}
@@ -140,7 +134,6 @@ class DesktopContainer extends Component {
           <Menu
             fixed={'top'}
             inverted
-            pointing
             size='huge'
           >
             <Container>
@@ -171,7 +164,15 @@ class App extends Component {
     return(
       <BrowserRouter forceRefresh={false}>
         <DesktopContainer>
-          <Container fluid style={{minHeight: '100vh'}}>
+          <style>
+            {`
+              #main-container, #second-container, #rocket-container, #outreach-container, #team-container, #banner {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+              }
+            `}
+          </style>
+          <Container id='main-container' fluid style={{minHeight: '100vh'}}>
             <Route render={({location}) => {
               const {pathname, key} = location;
               return (
@@ -179,13 +180,12 @@ class App extends Component {
                   <Switch location={location}>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/team" component={TeamView} />
-                    <Route exact path="/launchpad" component={Launchpad} />
+                    <Route path="/launchpad/:ref" component={Launchpad} />
                     <Route exact path='/outreach' component={OutreachView} />   
                   </Switch>
                 </Transition.Group>
               )
             }}/>
-            
           </Container>
 
           <Segment inverted vertical textAlign='center' style={{ padding: '3em 0em' }}>
@@ -217,14 +217,13 @@ class App extends Component {
                       </Grid.Column>
                     </Grid>
                   </Grid.Column>
-
-                  <Grid.Column width={12} floated='right'>
+                  {/*<Grid.Column width={12} floated='right'>
                     <List link inverted>
                     <List.Item as='h5' style={{float: 'right'}}>
                       © 2018-{year} - UWA Aerospace
                     </List.Item>
                     </List>
-                  </Grid.Column>
+                  </Grid.Column>*/}
                 </Grid.Row>
               </Grid>
             </Container>
