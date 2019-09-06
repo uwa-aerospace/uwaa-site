@@ -46,7 +46,7 @@ export default class TeamView extends Component {
                     </Container>
                 </Segment>
                 <Container>
-                <Grid  centered stackable relaxed='very'>
+                <Grid centered stackable relaxed='very'>
                     <GridRow style={{marginTop: '6em', marginBottom: '3em'}}>
                         <Container text>
                             <Header as="h1" className='header'>

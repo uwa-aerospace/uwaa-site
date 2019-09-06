@@ -71,12 +71,26 @@ class HomePage extends Component {
                     <Icon name='ordered list' /> 2019/2020 Objectives 
                 </Header>
                 <h3>This year we are focussing on creating a low-cost rocket for high-altitude research into atmospheric science and microgravity experiments through the following missions:</h3>
-                <List size='large' relaxed='very' ordered>
-                    <List.Item>QAD - Developing an innovative and improved recovery system</List.Item>
-                    <List.Item>Echidna - Developing an advanced high-altitude avionics system</List.Item>
-                    <List.Item>Platypus - Developing and launching our first supersonic rocket</List.Item>
-                    <List.Item>Roo - Launching a rocket over 20,000 ft.</List.Item>
-                </List>
+            </Container>
+            <Container style={{marginTop: '3em', marginBottom: '3em'}}>
+                <Grid centered stackable relaxed='very' columns={4} doubling>
+                    <Grid.Column textAlign='center'>
+                        <Header as='h2' content="1. QAD" />
+                        <h3>Developing an improved recovery system</h3>
+                    </Grid.Column>
+                    <Grid.Column textAlign='center'>
+                        <Header as='h2' content="2. Echidna" />
+                        <h3>Testing an advanced high-altitude avionics system</h3>
+                    </Grid.Column>
+                    <Grid.Column textAlign='center'>
+                        <Header as='h2' content="3. Platypus" />
+                        <h3>Launching our first supersonic rocket</h3>
+                    </Grid.Column>
+                    <Grid.Column textAlign='center'>
+                        <Header as='h2' content="4. Roo" />
+                        <h3>Launching a rocket over 30,000 ft.</h3>
+                    </Grid.Column>
+                </Grid>
             </Container>
         {/*<Segment vetrical basic fluid placeholder style={{marginTop: '10em', paddingBottom: '2em'}}>
             <Container textAlign="center" text>

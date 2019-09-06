@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Button, Header, Image, Grid, GridRow, Container, List, Icon, Segment, GridColumn, Transition, Responsive} from 'semantic-ui-react';
 import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 
+import GridList from '../Components/GridList';
 import Quote from '../Components/Quote';
 
 
@@ -19,11 +20,11 @@ const quotes = [
 ]
 
 const outcomes = [
-    {key: 1, icon: 'flask', content: 'Science Understanding'},
-    {key: 2, icon: 'lightbulb', content: 'Science Inquiry Skills'},
-    {key: 3, icon: 'trophy', content: 'Science as a Human Endeavour'},
-    {key: 4, icon: 'leaf', content: 'Earth and Space Sciences'},
-    {key: 5, icon: 'paper plane', content: 'Physical Sciences'},
+    {key: 1, icon: 'flask', header: 'Science Understanding'},
+    {key: 2, icon: 'lightbulb', header: 'Science Inquiry Skills'},
+    {key: 3, icon: 'trophy', header: 'Science as a Human Endeavour'},
+    {key: 4, icon: 'leaf', header: 'Earth and Space Sciences'},
+    {key: 5, icon: 'paper plane', header: 'Physical Sciences'},
 ]
 
 export default class OutreachView extends Component {
@@ -89,21 +90,12 @@ export default class OutreachView extends Component {
                 </Container>
                 <Container style={{marginTop: '6em'}}>
                     <Grid container columns={2} centered stackable>
-                        <List.Header as='h2' content='Learning Outcomes' />
+                        <List.Header as='h2' content='Learning Outcomes' style={{paddingBottom: '1.5em'}} />
                         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-                            <List 
-                                relaxed='very' 
-                                horizontal
-                                size='huge' 
-                                items={outcomes}
-                            />
+                            <GridList items={outcomes} columns={outcomes.length} />
                         </Responsive>
                         <Responsive {...Responsive.onlyMobile}>
-                            <List 
-                                relaxed='very'
-                                size='huge' 
-                                items={outcomes}
-                            />
+                            <GridList items={outcomes} columns={2} />
                         </Responsive>
                         <Container style={{marginTop: '8em', marginBottom: '8em', minHeight: '10em'}}>
                             <Container padded='very'>

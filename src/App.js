@@ -48,11 +48,10 @@ const MenuItems = ({mobile}) => (
   <>
     <Dropdown item simple={!mobile} text='Missions'>
       <Dropdown.Menu>
-        
-        <Dropdown.Item as={NavLink} to='/launchpad/ariel' text='Ariel' />
-        <Dropdown.Item as={NavLink} to='/launchpad/jeff' text='Jeff' />
-        <Dropdown.Item as={NavLink} to='/launchpad/finley' text='Finley' />
         <Dropdown.Item as={NavLink} to='/launchpad/qad' text='QAD' />
+        <Dropdown.Item as={NavLink} to='/launchpad/finley' text='Finley' />
+        <Dropdown.Item as={NavLink} to='/launchpad/jeff' text='Jeff' />
+        <Dropdown.Item as={NavLink} to='/launchpad/ariel' text="Cupid's Arrow" />
         {/*<Dropdown.Item icon='flask' href="/aurc2018" as="a" text='2019 Science Missions' />*/}
       </Dropdown.Menu>
     </Dropdown>
@@ -187,16 +186,15 @@ class App extends Component {
               )
             }}/>
           </Container>
-
           <Segment inverted vertical textAlign='center' style={{ padding: '3em 0em' }}>
             <Container>
-              <Grid inverted stackable centered>
+              <Grid inverted stackable centered stretched>
                 <Grid.Row verticalAlign='bottom'>
-                  <Grid.Column width={6}>
-                    <Header inverted as='h4' content='Contact Us' textAlign='center' />
+                  <Grid.Column width={8}>
+                    <Header inverted as='h3' content='Contact Us' textAlign='center' />
                     <Grid columns={2} inverted divided verticalAlign='middle'>
                       <Grid.Column>
-                        <List link inverted>
+                        <List link inverted size='large'>
                           <List.Item as='a' href='https://goo.gl/maps/Wm5fVCWFvksBqmoi7' target='_blank'>
                             <Icon name='map outline' /> 35 Stirling Hwy, 6009 Perth WA
                             The University of Western Australia  
@@ -204,7 +202,7 @@ class App extends Component {
                         </List>
                       </Grid.Column>
                       <Grid.Column>
-                        <List link inverted>
+                        <List link inverted size='large'>
                           <List.Item as='a' href='https://www.facebook.com/UWAAerospace/' target='_blank'>
                             <Icon name='facebook f' />
                             Facebook
