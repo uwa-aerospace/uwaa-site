@@ -177,10 +177,10 @@ class App extends Component {
               return (
                 <Transition.Group>
                   <Switch location={location}>
-                    <Route exact path="/" component={HomePage} />
                     <Route exact path="/team" component={TeamView} />
-                    <Route path="/launchpad/:ref" component={Launchpad} />
-                    <Route exact path='/outreach' component={OutreachView} />   
+                    <Route exact path="/launchpad/:ref" component={Launchpad} />
+                    <Route exact path='/outreach' component={OutreachView} /> 
+                    <Route component={HomePage} />  
                   </Switch>
                 </Transition.Group>
               )

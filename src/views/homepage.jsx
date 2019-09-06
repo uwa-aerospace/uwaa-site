@@ -62,7 +62,7 @@ class HomePage extends Component {
             </Responsive>
             <Segment vertical padded='very' basic textAlign='center' tertiary>
                 <Container text>
-                    <Header as='h2'>UWA Aerospace is a student led technical team focused on developing high-powered rockety capabilities in Western Australia.</Header>
+                    <Header as='h2'>UWA Aerospace is a student led technical team focused on developing high-powered rocketry capabilities in Western Australia.</Header>
                     <Header as='h2'>We design, build, and launch our rockets for high-altitude research, as well as promote space science and STEM in the Community.</Header>
                 </Container>
             </Segment>
@@ -153,7 +153,7 @@ class HomePage extends Component {
                             <Image centered size='medium' href='http://wars.org.au' target='_blank' src={'/media/wars.jpg'} />
                         </Grid.Column>
                         <Grid.Column>
-                            <Image centered size='medium' href='http://www.uwa.edu.au' target='_blank' src={'/media/UWALogo.jpg'} />
+                            <Image centered size='medium' href='http://www.uwa.edu.au' target='_blank' src={'/media/UWAlogo.jpg'} />
                         </Grid.Column>
                     </Grid>
                 </Container>

@@ -196,22 +196,22 @@ export default class TeamView extends Component {
                     <Rail position='left' size='massive'>
                         <Segment basic padded='very'>
                             <Container fluid>
-                            <Header as='h1' content='Application Process' />
-                            <Header as='h4'>
-                                We encourage students from all fields of study, not just engineering! However, only UWA students can register interest for joining the team.
-                            </Header>
-                            <Step.Group fluid size='large' widths={2} ordered stackable='tablet' vertical>
-                                    <Step>
-                                        <Step.Title>Fill Out Our Form</Step.Title>
-                                        <Step.Description>UWA Students can access the application form <a href="https://forms.gle/XBN4GzdspLjGJt1p7">here</a>.</Step.Description>
-                                    </Step>
-                                    <Step>
-                                        <Step.Title>We'll Want to Chat With You!</Step.Title>
-                                        <Step.Description>
-                                            <p>We'll get in touch within 7 days to arrange a time to meet with you.</p>                                
-                                        </Step.Description>
-                                    </Step>
-                            </Step.Group>
+                                <Header as='h1' content='Application Process' />
+                                <Header as='h4'>
+                                    We encourage students from all fields of study, not just engineering! However, only UWA students can register interest for joining the team.
+                                </Header>
+                                <Step.Group fluid size='large' widths={2} ordered stackable='tablet' vertical>
+                                        <Step>
+                                            <Step.Title>Fill Out Our Form</Step.Title>
+                                            <Step.Description>UWA Students can access the application form <a href="https://forms.gle/XBN4GzdspLjGJt1p7">here</a>.</Step.Description>
+                                        </Step>
+                                        <Step>
+                                            <Step.Title>We'll Want to Chat With You!</Step.Title>
+                                            <Step.Description>
+                                                <p>We'll get in touch within 7 days to arrange a time to meet with you.</p>                                
+                                            </Step.Description>
+                                        </Step>
+                                </Step.Group>
                             </Container>
                         </Segment>
                     </Rail>
